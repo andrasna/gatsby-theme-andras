@@ -1,0 +1,19 @@
+.excerpts {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  gap: 2rem;
+}
+
+@media (min-width: 30rem) {
+  .excerpts {
+    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  }
+}
+
+.excerpt {
+  max-width: 100%; 
+}
+
+.title {
+  font-size: var(--fs-2);
+}

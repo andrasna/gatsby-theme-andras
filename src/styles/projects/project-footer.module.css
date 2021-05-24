@@ -1,0 +1,28 @@
+.list {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  margin-top: auto;
+}
+
+.item {
+  margin-left: 1.5rem;
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: center;
+  gap: .3rem;
+}
+
+.item:first-child {
+  margin-left: 0;
+}
+
+/* Icons */
+
+.star {
+  color: var(--color-copy);
+}
+
+.circle {
+  font-size: var(--fs-6);
+}

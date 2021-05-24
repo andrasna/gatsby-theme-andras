@@ -1,0 +1,19 @@
+.common {
+  max-width: var(--width-lg);
+  margin: 0 auto;
+  padding: 0 var(--margin-site);
+}
+
+.normal {
+  composes: common;
+}
+
+.post {
+  composes: common;
+}
+
+@media (max-width: 30rem) {
+  .post {
+    padding: 0;
+  }
+}

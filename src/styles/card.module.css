@@ -1,0 +1,6 @@
+.card {
+  border-radius: var(--border-radius-card);
+  background: var(--color-card);
+  transition: background-color var(--time-color);
+  padding: var(--margin-site);
+}

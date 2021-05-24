@@ -1,0 +1,5 @@
+.logo {
+  margin-left: var(--margin-site);
+  margin-right: var(--margin-site);
+  font-size: var(--fs-2);
+}

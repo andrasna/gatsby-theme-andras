@@ -1,0 +1,30 @@
+.nav {
+  margin: 0 var(--margin-site);
+  overflow: auto;
+}
+
+.list {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.item {
+  padding-left: calc(.5rem + 5vw);
+  padding-left: min(5rem, calc(.5rem + 5vw));
+}
+
+.item:first-child {
+  padding-left: 0;
+}
+
+.link {
+  color: var(--color-link);
+  font-size: var(--fs-3);
+}
+
+.link:hover,
+.link-is-current {
+  color: var(--color-link-current-page);
+}

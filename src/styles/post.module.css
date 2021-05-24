@@ -1,0 +1,5 @@
+.post {
+  max-width: 56rem;
+  margin: 0 auto 2rem auto;
+  padding: clamp(1.2rem, 3vw, 3rem);
+}

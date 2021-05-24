@@ -1,0 +1,14 @@
+.about {
+  display: grid;
+  grid-template-columns: auto;
+  gap: 2rem;
+  justify-items: center;
+}
+
+@media (min-width: 64rem) {
+  .about {
+    grid-template-columns: auto;
+    grid-template-columns: 2.4fr 1fr;
+    align-items: flex-start;
+  }
+}

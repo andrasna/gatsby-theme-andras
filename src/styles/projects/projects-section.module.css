@@ -1,0 +1,10 @@
+.title {
+  font-weight: 300;
+  color: var(--color-copy);
+  font-size: var(--fs-2);
+  margin: 2rem 0 1rem;
+}
+
+.bg {
+  position: relative;
+}

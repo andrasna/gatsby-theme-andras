@@ -1,0 +1,61 @@
+.label {
+  --track-width: 3rem;
+  --track-height: 1.4rem;
+  --circle-radius: 1.9rem;
+  --circle-offsetX: .4em;
+
+  --translate-circle-light-mode: calc(
+    var(--circle-offsetX)
+    *
+    -1
+  );
+  --translate-circle-dark-mode: calc(
+    var(--track-width)
+    -
+    var(--circle-radius)
+    +
+    var(--circle-offsetX) 
+  );
+
+  display: grid;
+  align-items: center;
+  cursor: pointer;
+  justify-self: center;
+  padding: 0 .4rem;
+  margin: 0 var(--margin-site);
+}
+
+.label:before,
+.label:after {
+  content: "";
+  display: block;
+  grid-row-start: 1;
+  grid-column-start: 1;
+  background: var(--color-link);
+}
+
+.label:before {
+  width: var(--track-width);
+  height: var(--track-height);
+  border-radius: var(--track-height);
+  transition: background-color var(--time-color);
+  opacity: .15;
+  grid-row-start: 1;
+  grid-column-start: 1;
+}
+
+.label:after {
+  width: var(--circle-radius);
+  height: var(--circle-radius);
+  border-radius: var(--circle-radius);
+  opacity: .7;
+  transform: translateX(var(--translate-circle-light-mode));
+  transition: 
+    background-color var(--time-color),
+    transform var(--time-transform)
+  ;
+}
+
+:global(.dark-mode) .label:after {
+  transform: translateX(var(--translate-circle-dark-mode));
+}

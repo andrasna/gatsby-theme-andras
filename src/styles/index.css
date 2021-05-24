@@ -1,0 +1,10 @@
+@import 'reset.css';
+@import 'props.css';
+@import 'utils.css';
+@import 'base.css';
+
+/* Icons */
+
+.color-JavaScript {
+  color: var(--color-yellow);
+}

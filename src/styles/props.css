@@ -1,0 +1,72 @@
+html {
+  /* Width */
+  --width-lg: 75rem;
+
+  /* Margin */
+  --margin-site: 1.25rem;
+
+  /* Border */
+  --border-radius-card: .5rem;
+
+  /* Transition time */
+  --time-color: .4s;
+  --time-transform: .6s;
+
+  /* Font family */
+  --ff: "Spectral", serif;
+
+  /* Font sizes */
+  --fs-1: 2rem;
+  --fs-2: 1.65rem;
+  --fs-3: 1.375rem;
+  --fs-4: 1.25rem;
+  --fs-5: 1.125rem;
+  --fs-6: .8rem;
+
+  /* Colors */
+  --color-copy: hsla(0, 0%, 0%, .9); 
+  --color-title: hsla(0, 0%, 0%, .7); 
+  --color-link: hsla(233, 34%, 50%, 1); 
+  --color-link-current-page: var(--color-copy); 
+  --color-link-footer: var(--color-copy); 
+  --color-card: hsla(0, 0%, 100%, 1);
+  --color-yellow: hsla(67, 100%, 73%, 1); 
+  --color-sitebg-alpha: hsla(77, 23%, 79%, 1);
+  --color-sitebg-beta: hsla(0, 21%, 94%, 1);
+  --color-sitebg-gamma: hsla(0, 0%, 96%, 1);
+  --color-code-bg: hsl(235, 15%, 16%);
+
+  /* Background image */
+  --bg-image-site: linear-gradient(
+    -60deg,
+    var(--color-sitebg-alpha) 0%,
+    var(--color-sitebg-beta) 50%,
+    var(--color-sitebg-gamma) 100%
+  );
+}
+
+@media (min-width: 40rem) {
+  html {
+    --fs-2: 1.875rem;
+  }
+}
+
+@media (min-width: 64rem) {
+  html {
+    --fs-3: 1.5rem;
+  }  
+}
+
+html.dark-mode {
+  /* Colors */
+  --color-copy: hsla(0, 0%, 100%, .9);
+  --color-title: var(--color-display);
+  --color-link: hsl(233, 100%, 84%);
+  --color-link-current-page: var(--color-copy); 
+  --color-link-footer: var(--color-copy); 
+  --color-card: hsl(234, 15%, 12%);
+  --color-yellow: hsla(67, 100%, 73%, 1);
+  --color-sitebg-alpha: hsl(0, 0%, 7%);
+  --color-sitebg-beta: var(--color-sitebg-alpha);
+  --color-sitebg-gamma: var(--color-sitebg-alpha); 
+}
