@@ -16,4 +16,3 @@ It is overall very minimal.
 I started with the [gatsby starter blog](https://github.com/gatsbyjs/gatsby-starter-blog), which I recommend as a starting point if you are planning to build your own theme.
 
 Feel free to use/modify this theme if you want though. However this theme is not complete yet. I am planning to add new features as needed.
-

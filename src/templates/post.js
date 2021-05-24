@@ -29,7 +29,9 @@ const Post = ({data}) => {
       <Wrapper>
         <NavArea />
       </Wrapper>
+
       <Wrapper variant='post'>
+
         <main>
           <article key={post.id} className={`${card} ${postStyle}`}>
             <header>
@@ -45,7 +47,9 @@ const Post = ({data}) => {
             <div dangerouslySetInnerHTML={{ __html: post.html }} />
           </article>
         </main>
+
       </Wrapper>
+
       <Wrapper>
         <FooterLinks />
       </Wrapper>
