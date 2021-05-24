@@ -30,7 +30,6 @@ html {
   --color-link-current-page: var(--color-copy); 
   --color-link-footer: var(--color-copy); 
   --color-card: hsla(0, 0%, 100%, 1);
-  --color-yellow: hsla(67, 100%, 73%, 1); 
   --color-sitebg-alpha: hsla(77, 23%, 79%, 1);
   --color-sitebg-beta: hsla(0, 21%, 94%, 1);
   --color-sitebg-gamma: hsla(0, 0%, 96%, 1);

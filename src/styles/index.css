@@ -2,9 +2,5 @@
 @import 'props.css';
 @import 'utils.css';
 @import 'base.css';
+@import 'lang-colors.css';
 
-/* Icons */
-
-.color-JavaScript {
-  color: var(--color-yellow);
-}
