@@ -1,9 +1,9 @@
 import React from 'react'
 import { Projects } from './projects'
-import { bg, title } from '../../styles/projects/projects-section.module.css'
+import { title } from '../../styles/projects/projects-section.module.css'
 
 const ProjectsSection = () => (
-  <section className={bg}>
+  <section>
       <h2 className={title}>
         My stuff on GitHub
       </h2>
