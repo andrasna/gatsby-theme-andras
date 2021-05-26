@@ -34,11 +34,11 @@ const Excerpts = () => {
                 {post.frontmatter.date}
               </time>
 
-              <h2 className={title}>
-                <Link to={post.fields.slug}>
+              <Link to={post.fields.slug}>
+                <h2 className={title}>
                   {post.frontmatter.title}
-                </Link>
-              </h2>
+                </h2>
+              </Link>
             </header>
 
             <div dangerouslySetInnerHTML={{ __html: post.excerpt }} />

@@ -22,14 +22,10 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-}
-
-.link {
   font-size: var(--fs-4);
 }
 
 .desc {
-  font-size: var(--fs-5);
   color: var(--color-copy);
   transition: color var(--time-color);
   margin-top: 0;

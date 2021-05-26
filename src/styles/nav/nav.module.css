@@ -1,6 +1,6 @@
 .nav {
-  margin: 0 var(--margin-site);
   overflow: auto;
+  grid-area: nav;
 }
 
 .list {
@@ -11,8 +11,7 @@
 }
 
 .item {
-  padding-left: calc(.5rem + 5vw);
-  padding-left: min(5rem, calc(.5rem + 5vw));
+  padding-left: clamp(2rem, 10vw, 4rem);
 }
 
 .item:first-child {

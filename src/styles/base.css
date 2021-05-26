@@ -5,10 +5,7 @@ html {
   font-family: var(--ff);
   line-height: 1.5;
   color: var(--color-copy);
-}
-
-body {
-  font-size: var(--fs-5);
+  font-family: var(--ff-copy);
 }
 
 a {
@@ -35,6 +32,7 @@ p {
 
 h1, h2, h3, h4, h5, h6 {
   margin-bottom: 1rem;
+  font-family: var(--ff-heading);
 }
 
 h1 {

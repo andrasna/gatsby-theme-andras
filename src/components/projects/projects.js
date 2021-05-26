@@ -1,16 +1,16 @@
 import React from 'react'
 import { useStaticQuery, graphql } from "gatsby"
 import { ProjectFooter } from './project-footer'
-import { list, item, title, link, desc } from '../../styles/projects/projects.module.css'
+import { list, item, title, desc } from '../../styles/projects/projects.module.css'
 import { card } from '../../styles/card.module.css'
 
 const Project = ({repo}) => (
   <li className={`${card} ${item}`}>
-    <h3 className={title}>
-      <a className={link} href={repo.url}>
-        {repo.name}
-      </a>
-    </h3>
+    <a href={repo.url}>
+      <h3 className={title}>
+          {repo.name}
+      </h3>
+    </a>
 
     <p className={desc}>{repo.description}</p>
 

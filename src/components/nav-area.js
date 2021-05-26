@@ -9,9 +9,10 @@ const NavArea = () => {
     <section className={navArea}>
       <Logo />
 
-      <ColorModeSwitch />
 
       <Nav />
+
+      <ColorModeSwitch />
     </section>
   )
 }

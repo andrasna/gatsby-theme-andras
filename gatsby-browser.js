@@ -1,12 +1,19 @@
+// Global styles
 import './src/styles/index.css'
-import '@fontsource/spectral'
-import '@fontsource/spectral/400-italic.css'
-import '@fontsource/spectral/300.css'
-import '@fontsource/spectral/600.css'
+
+// Fonts
+import '@fontsource/montserrat'
+import '@fontsource/montserrat/400-italic.css'
+import '@fontsource/montserrat/600.css'
+import '@fontsource/source-code-pro/300.css'
+import '@fontsource/source-code-pro/700.css'
+
+// Code hightlight
 import 'prismjs/themes/prism-okaidia.css'
 
+// Dark mode
 export const onClientEntry = () => {
-  if (localStorage.getItem('colorMode') === 'dark') {
-    document.documentElement.classList.add('dark-mode')
+  if (localStorage.getItem('is-dark') === true) {
+    document.documentElement.classList.add('is-dark')
   } 
 }

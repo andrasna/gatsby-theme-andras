@@ -13,7 +13,8 @@ html {
   --time-transform: .6s;
 
   /* Font family */
-  --ff: "Spectral", serif;
+  --ff-heading: 'Source Code Pro', monospace;
+  --ff-copy: 'Montserrat', sans-serif;
 
   /* Font sizes */
   --fs-1: 2rem;
@@ -44,19 +45,7 @@ html {
   );
 }
 
-@media (min-width: 40rem) {
-  html {
-    --fs-2: 1.875rem;
-  }
-}
-
-@media (min-width: 64rem) {
-  html {
-    --fs-3: 1.5rem;
-  }  
-}
-
-html.dark-mode {
+html.is-dark {
   /* Colors */
   --color-copy: hsla(0, 0%, 100%, .9);
   --color-title: var(--color-display);
