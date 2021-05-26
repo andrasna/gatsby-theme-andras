@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { button, icon } from '../styles/color-mode-switch.module.css'
+import { label, icon } from '../styles/color-mode-switch.module.css'
 import { BiMoon } from 'react-icons/bi'
 import { BiSun } from 'react-icons/bi'
 
@@ -13,10 +13,18 @@ const ColorModeSwitch = () => {
 
   // const isDark = false;
 
-  return(
-    <button className={button} onClick={() => setDark(!isDark)}>
+  return (
+    <label className={label} htmlFor="color-mode-switch">
+      <input
+        className="visually-hidden"
+        type="checkbox"
+        id="color-mode-switch"
+        onChange={() => setDark(!isDark)}
+        checked={isDark}
+      />
+      <span className="visually-hidden">Color mode switch</span>
       { isDark ?  <BiMoon className={icon} /> : <BiSun className={icon} /> } 
-    </button>
+    </label>
   )
 }
 
