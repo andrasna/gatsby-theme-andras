@@ -23,9 +23,7 @@ const About = () => {
             <figure>
               <img src={myFriendPhoto} alt="My friend" />
               <figcaption>
-                <p>
                 This is not me, it is my friend helping me design my about page.
-                </p>
               </figcaption>
             </figure>
 
