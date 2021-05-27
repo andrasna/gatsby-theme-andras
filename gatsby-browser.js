@@ -4,9 +4,8 @@ import './src/styles/index.css'
 // Fonts
 import '@fontsource/montserrat'
 import '@fontsource/montserrat/400-italic.css'
+import '@fontsource/montserrat/300.css'
 import '@fontsource/montserrat/600.css'
-import '@fontsource/source-code-pro/300.css'
-import '@fontsource/source-code-pro/700.css'
 
 // Code hightlight
 import 'prismjs/themes/prism-okaidia.css'

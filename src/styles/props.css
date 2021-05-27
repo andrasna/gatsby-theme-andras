@@ -13,8 +13,8 @@ html {
   --time-transform: .6s;
 
   /* Font family */
-  --ff-heading: 'Source Code Pro', monospace;
   --ff-copy: 'Montserrat', sans-serif;
+  --ff-heading: 'Montserrat', sans-serif;
 
   /* Font sizes */
   --fs-1: 2rem;
