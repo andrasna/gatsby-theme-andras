@@ -13,7 +13,7 @@ import 'prismjs/themes/prism-okaidia.css'
 
 // Dark mode
 export const onClientEntry = () => {
-  if (localStorage.getItem('is-dark') === true) {
+  if (localStorage.getItem('is-dark') === 'true') {
     document.documentElement.classList.add('is-dark')
   } 
 }

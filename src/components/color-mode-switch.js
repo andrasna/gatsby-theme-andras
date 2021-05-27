@@ -1,29 +1,38 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { label, icon } from '../styles/color-mode-switch.module.css'
 import { BiMoon } from 'react-icons/bi'
 import { BiSun } from 'react-icons/bi'
 
 const ColorModeSwitch = () => {
-  const [isDark, setDark] = useState(true)
+  const [isDark, setDark] = useState(false)
 
-  // useEffect(() => {
-  //   localStorage.setItem('is-dark', isDark)
-  //   document.documentElement.classList.toggle(!!isDark ? 'is-dark' : '')
-  // }, [isDark])
+  const toggleMode = () => {
+    localStorage.setItem('is-dark', !isDark)
+    document.documentElement.classList.toggle('is-dark')
+    setDark(!isDark)
+  }
 
-  // const isDark = false;
+  useEffect(() => {
+    if (localStorage.getItem('is-dark') === 'true') {
+      setDark(true)
+    }
+  }, [])
 
   return (
     <label className={label} htmlFor="color-mode-switch">
+
       <input
         className="visually-hidden"
         type="checkbox"
         id="color-mode-switch"
-        onChange={() => setDark(!isDark)}
+        onChange={() => toggleMode()}
         checked={isDark}
       />
+
       <span className="visually-hidden">Color mode switch</span>
-      { isDark ?  <BiMoon className={icon} /> : <BiSun className={icon} /> } 
+
+      { isDark ? <BiSun className={icon} /> : <BiMoon className={icon} /> }
+
     </label>
   )
 }
