@@ -3,15 +3,12 @@ import { NavArea } from '../components/nav-area'
 import { Wrapper } from '../components/wrapper'
 import { FooterLinks } from '../components/footer-links'
 import { Link } from 'gatsby'
-import { Helmet } from 'react-helmet'
+import { Seo } from '../components/seo'
 
 const NotFoundPage = () => {
-  return(
+  return (
     <>
-      <Helmet>
-        <meta charSet="utf-8" />
-        <title>404 | Andras Nagy</title>
-      </Helmet>
+      <Seo />
 
       <Wrapper>
         <NavArea />

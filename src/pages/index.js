@@ -3,15 +3,12 @@ import { NavArea } from '../components/nav-area'
 import { Wrapper } from '../components/wrapper'
 import { FooterLinks } from '../components/footer-links'
 import { ProjectsSection } from '../components/projects/projects-section'
-import { Helmet } from 'react-helmet'
+import { Seo } from '../components/seo'
 
 const Home = () => {
-  return(
+  return (
     <>
-      <Helmet>
-        <meta charSet="utf-8" />
-        <title>Home | Andras Nagy</title>
-      </Helmet>
+      <Seo />
 
       <Wrapper>
         <NavArea />

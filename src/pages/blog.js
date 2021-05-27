@@ -3,15 +3,12 @@ import { NavArea } from '../components/nav-area'
 import { Wrapper } from '../components/wrapper'
 import { Excerpts } from '../components/excerpts'
 import { FooterLinks } from '../components/footer-links'
-import { Helmet } from 'react-helmet'
+import { Seo } from '../components/seo'
 
 const Blog = () => {
-  return(
+  return (
     <>
-      <Helmet>
-        <meta charSet="utf-8" />
-        <title>Blog | Andras Nagy</title>
-      </Helmet>
+      <Seo />
 
       <Wrapper>
         <NavArea />

@@ -5,15 +5,12 @@ import { FooterLinks } from '../components/footer-links'
 import myFriendPhoto from '../assets/myfriend.jpeg' 
 import { about } from '../styles/page-about.module.css'
 import { card } from '../styles/card.module.css'
-import { Helmet } from 'react-helmet'
+import { Seo } from '../components/seo'
 
 const About = () => {
-  return(
+  return (
     <>
-      <Helmet>
-        <meta charSet="utf-8" />
-        <title>About | Andras Nagy</title>
-      </Helmet>
+      <Seo />
 
       <Wrapper>
         <NavArea />
