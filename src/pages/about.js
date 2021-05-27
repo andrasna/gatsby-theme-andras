@@ -35,9 +35,9 @@ const About = () => {
               <p>Hi, I am Andras, I specialize in front end web development.</p>
               <p>The main area of my work is about implementing web UIs.</p>
               <p>I emphasize the value of web performance, accessibility, choosing the right tools and technologies for each problem.</p>
-              <p>My native language is Hungarian, however we can communicate in English and German, too.</p>
+              <p>My native language is Hungarian, however we can communicate in English and German too.</p>
               <p>My <a title="Link to GitHub." href="https://github.com/andrasna">GitHub</a>, <a title="Link to CodePen." href="https://codepen.io/andrasnagy"> CodePen</a> and <a title="Link to StackOverflow." href="https://stackoverflow.com/users/5591717/fee-fi-fo-fum">StackOverflow</a> profile.</p>
-              <p>You may reach me through email: <br /> <a href="mailto:contact@andras.me">contact@andras.me</a> </p>
+              <p>You can reach me through email: <br /> <a href="mailto:contact@andras.me">contact@andras.me</a> </p>
             </div>
           </article>
         </main>
