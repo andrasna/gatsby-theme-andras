@@ -6,7 +6,7 @@ import { BiSun } from 'react-icons/bi'
 const ColorModeSwitch = () => {
   const [isDark, setDark] = useState(false)
 
-  const toggleMode = () => {
+  const switchMode = () => {
     localStorage.setItem('is-dark', !isDark)
     document.documentElement.classList.toggle('is-dark')
     setDark(!isDark)
@@ -25,7 +25,7 @@ const ColorModeSwitch = () => {
         className="visually-hidden"
         type="checkbox"
         id="color-mode-switch"
-        onChange={() => toggleMode()}
+        onChange={() => switchMode()}
         checked={isDark}
       />
 
