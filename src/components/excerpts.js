@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql } from 'gatsby'
 import { excerpts, excerpt, title } from '../styles/excerpt.module.css'
 import { card } from '../styles/card.module.css'
 

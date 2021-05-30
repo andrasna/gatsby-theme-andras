@@ -4,7 +4,7 @@ import { logo } from '../styles/logo.module.css'
 
 const Logo = () => {
   return(
-    <Link className={logo} to="/">andras.</Link>
+    <Link className={logo} to='/'>andras.</Link>
   )
 }
 

@@ -15,15 +15,15 @@ const NavItem = ({ link, name }) => (
 )
 
 const NavList = () => (
-  <ul className={list} id="menu">
-    <NavItem link="/" name="Home"/>
-    <NavItem link="/about" name="About"/>
-    <NavItem link="/blog" name="Blog"/>
+  <ul className={list} id='menu'>
+    <NavItem link='/' name='Home'/>
+    <NavItem link='/about' name='About'/>
+    <NavItem link='/blog' name='Blog'/>
   </ul>
 )
 
 const Nav = () => (
-  <nav className={nav} role="navigation" aria-label="navigation">
+  <nav className={nav} role='navigation' aria-label='navigation'>
     <NavList />
   </nav>
 )

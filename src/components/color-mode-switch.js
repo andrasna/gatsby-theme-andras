@@ -19,17 +19,17 @@ const ColorModeSwitch = () => {
   }, [])
 
   return (
-    <label className={label} htmlFor="color-mode-switch">
+    <label className={label} htmlFor='color-mode-switch'>
 
       <input
-        className="visually-hidden"
-        type="checkbox"
-        id="color-mode-switch"
+        className='visually-hidden'
+        type='checkbox'
+        id='color-mode-switch'
         onChange={() => switchMode()}
         checked={isDark}
       />
 
-      <span className="visually-hidden">Color mode switch</span>
+      <span className='visually-hidden'>Color mode switch</span>
 
       { isDark ? <BiSun className={icon} /> : <BiMoon className={icon} /> }
 

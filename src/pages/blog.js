@@ -18,7 +18,7 @@ const Blog = () => {
 
         <main>
           <article>
-            <header className="visually-hidden">
+            <header className='visually-hidden'>
               <h1>Blog</h1>
             </header>
 

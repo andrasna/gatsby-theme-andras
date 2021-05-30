@@ -1,5 +1,5 @@
 import React from 'react'
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql } from 'gatsby'
 import { ProjectFooter } from './project-footer'
 import { list, item, title, desc } from '../../styles/projects/projects.module.css'
 import { card } from '../../styles/card.module.css'

@@ -18,14 +18,14 @@ const About = () => {
         <main>
           <article className={about}>
             <figure>
-              <img src={myFriendPhoto} alt="My friend" />
+              <img src={myFriendPhoto} alt='My friend' />
               <figcaption>
                 This is not me, it is my friend helping me design my about page.
               </figcaption>
             </figure>
 
             <div className={card}>
-              <header className="visually-hidden">
+              <header className='visually-hidden'>
                 <h1>About</h1>
               </header>
 
@@ -33,8 +33,8 @@ const About = () => {
               <p>The main area of my work is about implementing web UIs.</p>
               <p>I emphasize the value of web performance, accessibility, choosing the right tools and technologies for each problem.</p>
               <p>My native language is Hungarian, however we can communicate in English and German too.</p>
-              <p>My <a title="Link to GitHub." href="https://github.com/andrasna">GitHub</a>, <a title="Link to CodePen." href="https://codepen.io/andrasnagy"> CodePen</a> and <a title="Link to StackOverflow." href="https://stackoverflow.com/users/5591717/fee-fi-fo-fum">StackOverflow</a> profile.</p>
-              <p>You can reach me through email: <br /> <a href="mailto:contact@andras.me">contact@andras.me</a> </p>
+              <p>My <a title='Link to GitHub.' href='https://github.com/andrasna'>GitHub</a>, <a title='Link to CodePen.' href='https://codepen.io/andrasnagy'> CodePen</a> and <a title='Link to StackOverflow.' href='https://stackoverflow.com/users/5591717/fee-fi-fo-fum'>StackOverflow</a> profile.</p>
+              <p>You can reach me through email: <br /> <a href='mailto:contact@andras.me'>contact@andras.me</a> </p>
             </div>
           </article>
         </main>
