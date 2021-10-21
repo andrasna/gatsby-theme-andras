@@ -15,7 +15,7 @@ You can check out an example I have created for fun (not made for production):
 
 https://codepen.io/andrasnagy/pen/bGrwLGe
 
-*At the time of writing this, you can go to nike.com or amazon.com for real-world implementations of this pattern.*
+*At the time of writing this, you can go to [nike.com](https://www.nike.com/us/en/) or [amazon.com](https://www.amazon.com/) for real-world implementations of this pattern.*
 
 I particularly like how we often have a partially visible item, which serves as a hint for the user that there are more items and therefore some kind of an action needs to be performed, scroll or press a button in our case.
 
