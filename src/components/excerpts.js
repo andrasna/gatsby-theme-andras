@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import { useStaticQuery, graphql } from 'gatsby'
-import { excerpts, excerpt, title, time } from '../styles/excerpt.module.css'
+import { excerpts, excerpt, title } from '../styles/excerpt.module.css'
 import { card } from '../styles/card.module.css'
 
 const Excerpts = () => {
@@ -30,7 +30,7 @@ const Excerpts = () => {
         return (
           <article key={i} className={`${card} ${excerpt}`}>
             <header>
-              <time className={`${time}`} dateTime={post.frontmatter.date}>
+              <time dateTime={post.frontmatter.date}>
                 {post.frontmatter.date}
               </time>
 
