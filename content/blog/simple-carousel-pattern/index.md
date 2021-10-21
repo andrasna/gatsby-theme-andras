@@ -1,7 +1,7 @@
 ---
 title: "A simple carousel pattern"
 date: "2021-10-21"
-description: "Responsive carousel with scroll-snap combined with a few lines of JS."
+description: "A practicable carousel pattern without external dependencies."
 ---
 
 One pattern for carousels I like a lot and see often is this:

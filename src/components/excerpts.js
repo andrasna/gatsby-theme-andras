@@ -9,9 +9,9 @@ const Excerpts = () => {
     query PostExcerptsQuery {
       allMarkdownRemark(sort: {order: DESC, fields: frontmatter___date}) {
         nodes {
-          excerpt(pruneLength: 220)
           frontmatter {
             title
+            description
             date(formatString: "MMMM DD, YYYY")
           }
           fields {
@@ -41,7 +41,9 @@ const Excerpts = () => {
               </Link>
             </header>
 
-            <div dangerouslySetInnerHTML={{ __html: post.excerpt }} />
+            <div>
+              {post.frontmatter.description}
+            </div>
           </article>
         )
       })}
