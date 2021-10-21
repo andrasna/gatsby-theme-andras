@@ -33,6 +33,7 @@ p {
 h1, h2, h3, h4, h5, h6 {
   margin-bottom: 1rem;
   font-family: var(--ff-heading);
+  line-height: normal;
 }
 
 h1 {
@@ -65,4 +66,9 @@ pre {
   margin: 1.5rem 0 !important;
   border-radius: var(--border-radius-card) !important;
   background: var(--color-code-bg) !important;
+}
+
+time {
+  margin-bottom: .5rem;
+  display: inline-block;
 }
