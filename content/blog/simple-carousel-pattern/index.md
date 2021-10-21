@@ -23,4 +23,4 @@ It is fairly straightforward how we can define these partially visible items for
 
 This example uses a few lines of JavaScript for the previous and next buttons, but the carousel is fully functional even without JavaScript.
 
-For a css-only solution, I recommend checking out this article: https://css-tricks.com/css-only-carousel/
+For a css-only solution (including control buttons), I recommend checking out this article: https://css-tricks.com/css-only-carousel/
