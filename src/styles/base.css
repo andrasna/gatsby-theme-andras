@@ -26,6 +26,12 @@ figcaption {
   color: var(--color-nav);
 }
 
+blockquote {
+  border-left: 2px solid;
+  padding-left: 1rem;
+  font-style: italic;
+}
+
 p {
   margin-bottom: 1rem;
 }
