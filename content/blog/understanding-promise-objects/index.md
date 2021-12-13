@@ -408,7 +408,7 @@ function myAsyncFunction(url) {
 }
 ```
 
-Based on what we have learned so far, what does this code do? We don't have to understand each bit of code, but in essence:
+Based on what we have learned so far, what does this code do? We don't have to understand each bit, but in essence:
 
 1. A call to myAsyncFunction returns a new promise object.
 2. The executor function, as we have discussed, has two arguments, resolve and reject.
