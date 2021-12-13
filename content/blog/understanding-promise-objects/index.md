@@ -317,7 +317,7 @@ Depending on which state the promise ends up in, either the first or the second 
 
 - The first callback is run if the promise's state changes to "fulfilled". It can take one argument. This argument takes the value we have passed to the first function of our executor. In example 13, it is the a string saying "Successful".
 
-- The second callback is run if the promise's state changes to "rejected". It can also take one argument, but this argument takes the value we have passed to the second function of our executor. In example 13, it is the a string saying "Failed".
+- The second callback is run if the promise's state changes to "rejected". It can also take one argument, but this argument takes the value we have passed to the second function of our executor. In example 14, it is the a string saying "Failed".
 
 Now take a look at this example:
 
