@@ -416,7 +416,7 @@ Based on what we have learned so far, what does this code do? We don't have to u
     1. We prepare a GET request by creating an XHR object.
     1. We get ready to call resolve with the response to the GET request, in case the request is successful.
     1. We get ready to call reject with the response status of the GET request, in case the request encounters an error.
-    1. Dispatch the request to the server.
+    1. We dispatch the request to the server.
 
 And this is how we might use this function (with *Promise.prototype.then*, as discussed earlier):
 
