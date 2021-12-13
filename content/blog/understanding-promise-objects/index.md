@@ -99,7 +99,7 @@ The "computation" the language specification refers to is the code we write in o
 
 And basically, the purpose of each promise object is to:
 
-1. Allow us to reflect the result of our computation in its properties ("PromiseState" and "PromiseResult")
+1. Allow us to reflect the result of our computation in its properties ("PromiseState" and "PromiseResult").
 2. Provide methods to schedule function calls for the time after a change in its state.
 
 We will discuss the second point and how to use the methods (*Promise.prototype.then*, *Promise.prototype.catch*, *Promise.prototype.finally*) very soon, but only after looking at some examples of how the properties (state and result) of a promise can be mutated.
