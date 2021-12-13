@@ -30,7 +30,7 @@ function foo() {} // We can rename "foo"  however we like.
 const myPromise = new Promise(foo) // Creates a promise.
 ```
 
-The constructor expects one argument in the form of a function to initialize a promise. The specifications gave this function the name "executor".
+The constructor expects one argument in the form of a function to initialize a promise. The specification gave this function the name "executor".
 
 In example 1, we have passed an executor that does nothing (the function's body is empty), still, the constructor successfully creates a promise. 
 
