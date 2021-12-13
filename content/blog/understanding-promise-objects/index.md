@@ -307,7 +307,7 @@ myPromise.then(
 ```
 
 With the *Promise.prototype.then* method we can schedule function calls ("callbacks") for the time after the promise's state changes.
-Not only that, it also allows accesss to the object's result property via the optional argument of the callback.
+Not only that, it also allows access to the object's result property via the optional argument of the callback.
 
 In more detail:
 
