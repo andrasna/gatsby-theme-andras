@@ -411,7 +411,7 @@ function myAsyncFunction(url) {
 Based on what we have learned so far, what does this code do? We don't have to understand each bit, but in essence:
 
 1. A call to myAsyncFunction returns a new promise object.
-2. The executor function, as we have discussed, has two arguments, resolve and reject.
+2. The executor function, as we have discussed, has two arguments, named "resolve" and "reject" in this case.
 3. In the executor's body, we do our "computation":
     1. We prepare a GET request by creating an XHR object.
     1. We get ready to call resolve with the response to the GET request, in case the request is successful.
