@@ -2,6 +2,7 @@ html {
   min-height: 100vh;
   background-image: var(--bg-image-site) ;
   background-repeat: no-repeat;
+  background-attachment: fixed;
   font-family: var(--ff);
   line-height: 1.5;
   color: var(--color-copy);
