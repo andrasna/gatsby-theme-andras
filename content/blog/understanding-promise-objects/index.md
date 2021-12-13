@@ -444,7 +444,7 @@ myPromise.then(
 <a id="further-reading"></a>
 ## Further reading
 
-We arrived to the end of this post, I will finish with some addition reading material:
+We've arrived at the end of this post, I will finish with some addition reading material:
 
 [https://github.com/domenic/promises-unwrapping/blob/master/docs/states-and-fates.md](https://github.com/domenic/promises-unwrapping/blob/master/docs/states-and-fates.md)
 
