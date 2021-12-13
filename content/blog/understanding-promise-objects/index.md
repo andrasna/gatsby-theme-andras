@@ -11,7 +11,7 @@ Note: This article assumes familiarity with JavaScript in general.
 - [How to create a promise?](#how-to-create-a-promise)
 - [What is actually a promise?](#what-is-actually-a-promise)
 - [Changing the state and result of promises](#changing-the-state-and-result-of-promises)
-- [How to use a promise?](#how-to-use-a-promise)
+- [How to use promises?](#how-to-use-promises)
 - [A more realistic example](#a-more-realistic-example)
 - [Further reading](#further-reading)
 - [Feedback](#feedback)
