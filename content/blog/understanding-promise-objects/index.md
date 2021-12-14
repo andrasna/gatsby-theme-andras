@@ -51,7 +51,7 @@ According to the ECMAScript Language Specification:
 
 > A Promise is an object that is used as a placeholder for the eventual results of a deferred (and possibly asynchronous) computation.
 
-Do not let the language specification's use of "Promise", with a capital letter "P" confuse you. It does not refer to the Promise constructor (constructors are usually capitalized), it refers to an instance (which we normally do not capitalize). Think of "Promise" in the quote from the specification as "myPromise" in example 1.
+Do not let the language specification's use of "Promise", with a capital letter "P", confuse you. It does not refer to the Promise constructor (constructors are usually capitalized), it refers to an instance (which we normally do not capitalize). Think of "Promise" in the quote from the specification as "myPromise" in example 1.
 
 So a promise is an object.
 
@@ -250,9 +250,9 @@ Here, we use *setTimeout* to pretend doing some computation for 3 seconds, and t
 
 What is interesting about the above, is how we log myPromise twice (after 1 second and after 5 seconds).
 
-Look at the state and the result: they change. As you might expect, since we call *fulfill* with a string, to change the state and the result.
+Look at the state and the result: they change (as you might expect, since we call *fulfill* with a string, to change the state and the result).
 
-It would be tedious and arbitrary to check like this whether our program has finished computing yet. Also, how do we access something like the result of the computation?
+However, it would be tedious and inefficient to make guesses how long the computation will take. Wouldn't it be convenient, if would could just tell what to do if it's finised? Also, how do we access something like the result of the computation?
 
 Luckily, promise objects have methods to come to our rescue!
 
