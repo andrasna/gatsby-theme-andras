@@ -69,7 +69,7 @@ const myPromise = new Promise(() => {})
 console.log(myPromise)
 ```
 
-We see that 3 properties live directly on each instance of a Promise. In chrome, they are called "Prototype" (we will get to this later),  "PromiseState" and "PromiseResult".
+We see 3 properties live directly on each instance of a Promise. In chrome, they are called "Prototype" (we will get to this later),  "PromiseState" and "PromiseResult".
 
 We can think of the "PromiseState" and "PromiseResult" properties as the actual "placeholders"  the specification is referring to in a more abstract manner. Both properties are internal, i.e. inaccessible or not meant to be accessed by us directly.
 
