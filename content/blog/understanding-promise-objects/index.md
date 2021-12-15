@@ -6,7 +6,7 @@ description: "What they are, how they are created and used, with examples."
 
 *Note: This article assumes familiarity with JavaScript in general.*
 
-## Table of contents:
+Table of contents:
 
 - [How to create a promise?](#how-to-create-a-promise)
 - [What is actually a promise?](#what-is-actually-a-promise)
