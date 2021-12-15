@@ -4,7 +4,7 @@ date: "2021-12-12"
 description: "What they are, how they are created and used, with examples."
 ---
 
-Note: This article assumes familiarity with JavaScript in general.
+*Note: This article assumes familiarity with JavaScript in general.*
 
 ## Table of contents:
 
@@ -15,7 +15,6 @@ Note: This article assumes familiarity with JavaScript in general.
 - [A more realistic example](#a-more-realistic-example)
 - [Further reading](#further-reading)
 - [Feedback](#feedback)
-
 
 <a id="how-to-create-a-promise"></a>
 ## How to create a promise?
@@ -32,7 +31,7 @@ const myPromise = new Promise(foo) // Creates a promise.
 
 The constructor expects one argument in the form of a function to initialize a promise. The specification gave this function the name "executor".
 
-In example 1, we have passed an executor that does nothing (the function's body is empty), still, the constructor successfully creates a promise. 
+In *example 1*, we have passed an executor that does nothing (the function's body is empty), still, the constructor successfully creates a promise.
 
 If nothing, or anything other than a function is passed, we get a type error:
 
@@ -51,13 +50,13 @@ According to the ECMAScript Language Specification:
 
 > A Promise is an object that is used as a placeholder for the eventual results of a deferred (and possibly asynchronous) computation.
 
-Do not let the language specification's use of "Promise", with a capital letter "P", confuse you. It does not refer to the Promise constructor (constructors are usually capitalized), it refers to an instance (which we normally do not capitalize). Think of "Promise" in the quote from the specification as "myPromise" in example 1.
+Do not let the language specification's use of "Promise", with a capital letter "P", confuse you. It does not refer to the Promise constructor (constructors are usually capitalized), it refers to an instance (which we normally do not capitalize). Think of "Promise" in the quote from the specification as "myPromise" in *example 1*.
 
 So a promise is an object.
 
 More specifically, it is an instance of the Promise constructor or Promise type, if you will.
 
-It has properties and methods like any other object. 
+It has properties and methods like any other object.
 
 If we console.log a promise, we can take a look at the anatomy of the object:
 
@@ -73,7 +72,7 @@ We see 3 properties live directly on each instance of a Promise. In chrome, they
 
 We can think of the "PromiseState" and "PromiseResult" properties as the actual "placeholders"  the specification is referring to in a more abstract manner. Both properties are internal, i.e. inaccessible or not meant to be accessed by us directly.
 
-Their initial values are "pending" and "undefined", respectively. 
+Their initial values are "pending" and "undefined", respectively.
 
 Now take a look at this example:
 
@@ -83,9 +82,9 @@ Now take a look at this example:
 function executor() {
   /**
    * We may do some "computation".
-   * 
+   *
    * ...
-   * 
+   *
    * Once we are finished,
    * we may mutate the properties of the promise object
    * to reflect the result of the computation.
@@ -95,46 +94,59 @@ function executor() {
 const myPromise = new Promise(executor)
 ```
 
-The "computation" the language specification refers to is the code we write in our executor (see example 4).
+The "computation" the language specification refers to is the code we write in our executor (see *example 4*).
 
 And basically, the purpose of each promise object is to:
 
 1. Allow us to reflect the result of our computation in its properties ("PromiseState" and "PromiseResult").
-2. Provide methods to schedule function calls for the time after a change in its state.
+2. Provide methods to schedule function calls ("callbacks") for the time after a change in its state.
 
 We will discuss the second point and how to use the methods (*Promise.prototype.then*, *Promise.prototype.catch*, *Promise.prototype.finally*) very soon, but only after looking at some examples of how the properties (state and result) of a promise can be mutated.
 
 <a id="changing-the-state-and-result-of-promises"></a>
 ## Changing the state and result of promises
 
-We still won't do any computations in our executor - although without it, promises are kind of useless. However, to mutate the properties of a promise, we don't actually need any computation. We just have to call either the first or the second argument of an executor.
+The executor is actually a *higher order function*. It takes two functions as arguments. To mutate the properties of a promise, we just have to call either the first or the second.
 
-Let's see some examples!
+Let's see the examples!
 
-Neither function is called:
+Without having called anything, state and result are populated with their initial values:
 
 ```jsx
 // example 5
 
-function executor() {}
+function executor(fufill, reject) {
+  /**
+   * We are still computing...
+   *
+   * Our program has yet to reach our call to fulfill or reject.
+   **/
+}
 
 const myPromise = new Promise(executor)
 
-console.log(myPromise) // state: "pending", result: undefined
+console.log(myPromise)
+
+// state: "pending", result: undefined
+
+// These are the initial values.
 ```
 
-Call the first function without arguments:
+Call the first function (without an argument):
 
 ```jsx
 // example 6
 
 function executor(fulfill) {
-  fulfill()
+  // Finished computing.
+
+  fulfill() // Our program finally reached this call
 }
 
 const myPromise = new Promise(executor)
 
-console.log(myPromise) // state: "fulfilled", result: undefined
+console.log(myPromise)
+// state: "fulfilled", result: undefined
 ```
 
 Call it with a number:
@@ -143,55 +155,68 @@ Call it with a number:
 // example 7
 
 function executor(fulfill) {
-  fulfill(9)
+  // Finished computing.
+
+  fulfill(9) // Our program finally reached this call
 }
 
 const myPromise = new Promise(executor)
 
-console.log(myPromise) // state: "fulfilled", result: 9
+console.log(myPromise)
+// state: "fulfilled", result: 9
 ```
 
 The result could be an object:
 
 ```jsx
-// example 8 
+// example 8
 
 function executor(fulfill) {
-// We could pass an object:
+  // Finished computing.
+
+  // We could pass an object:
   fulfill({word: 'discombobulate', frequency: 'rare'})
 }
 
 const myPromise = new Promise(executor)
 
-console.log(myPromise) // state: "fulfilled", result: {word: 'discombobulate', frequency: 'rare'}
+console.log(myPromise)
+// state: "fulfilled", result: {word: 'discombobulate', frequency: 'rare'}
 ```
 
-Call our reject function without arguments:
+Call our reject function without an argument:
 
 ```jsx
-// example 9 
+// example 9
 
 function executor(fulfill, reject) {
+  // Finished computing, but something went wrong.
+
   reject()
 }
 
 const myPromise = new Promise(executor)
 
-console.log(myPromise) // state: "rejected", result: undefined
+console.log(myPromise)
+// state: "rejected", result: undefined
 ```
 
 Call our reject function with a number:
 
 ```jsx
-// example 10 
+// example 10
 
 function executor(fulfill, reject) {
-  reject(11) // We could pass a number, if we wanted
+  // Finished computing, but something went wrong.
+
+  // We could pass a number (if we wanted):
+  reject(11)
 }
 
 const myPromise = new Promise(executor)
 
-console.log(myPromise) // state: "rejected", result: 11
+console.log(myPromise)
+// state: "rejected", result: 11
 ```
 
 Usually we call our reject function with an Error object:
@@ -200,15 +225,19 @@ Usually we call our reject function with an Error object:
 // example 11
 
 function executor(fulfill, reject) {
-  reject(new Error('My error message.')) // Usually an Error object is passed
+  // Finished computing, but something went wrong.
+
+  // Usually an Error object is passed:
+  reject(new Error('My error message.'))
 }
 
 const myPromise = new Promise(executor)
 
-console.log(myPromise) // state: "rejected", result: error object
+console.log(myPromise)
+// state: "rejected", result: error object
 ```
 
-Note: we may replace "fulfill" and "reject" with any name we want.
+*Note: we may replace "fulfill" and "reject" with any name we want.*
 
 <a id="how-to-use-promises"></a>
 ## How to use promises
@@ -218,7 +247,6 @@ If you recall from earlier, all instances of Promise also have a "Prototype" pro
 Take a look at this example:
 
 ```jsx
-
 // example 12
 
 function executor(fulfill, reject) {
@@ -236,23 +264,23 @@ function executor(fulfill, reject) {
 const myPromise = new Promise(executor)
 
 setTimeout(() => {
-  console.log('promise state after 1s: ', myPromise)
+  console.log('Our promise after 1s: ', myPromise)
   // state: "pending", result: undefined
 }, 1000)
 
 setTimeout(() => {
-  console.log('promise state after 5s: ', myPromise)
+  console.log('Our promise after 5s: ', myPromise)
   // state: "fulfilled", result: "Successful"
 }, 5000)
 ```
 
-Here, we use *setTimeout* to pretend doing some computation for 3 seconds, and then the function passed to *setTimeout* is run. For this example, the result is always true, which always satisfies our *if* condition, therefore we always call *fulfill* with the string "Successful".
+Here we use *setTimeout* to pretend doing some computation for 3 seconds, and then, the function passed to *setTimeout* is run. For this example, the result is always true, which always satisfies our condition, therefore we always call *fulfill* with the string "Successful".
 
 What is interesting about the above, is how we log myPromise twice (after 1 second and after 5 seconds).
 
-Look at the state and the result: they change (as you might expect, since we call *fulfill* with a string, to change the state and the result).
+Look at the state and the result: they change (as we might expect, since after 3 seconds, we call *fulfill* with a string, to change the state and the result).
 
-However, it would be tedious and inefficient to make guesses how long the computation will take. Wouldn't it be convenient, if would could just tell what to do if it's finised? Also, how do we access something like the result of the computation?
+However, it would be tedious and inefficient to make guesses how long the computation will take. Wouldn't it be convenient, if we could just tell what to do if it's finished? Also, how do we use something like the result of the computation?
 
 Luckily, promise objects have methods to come to our rescue!
 
@@ -263,7 +291,7 @@ Let's see how they work.
 
 function executor(fulfill, reject) {
   setTimeout(() => {
-  const computation = "apple" === "apple"
+    const computation = "apple" === "apple"
 
     if (computation) { // Satisfies the condition
       fulfill("Successful") // Do this.
@@ -288,7 +316,7 @@ And with a slight modification, to always call the second argument of the execut
 
 function executor(fulfill, reject) {
   setTimeout(() => {
-  const computation = "apple" === "orange"
+    const computation = "apple" === "orange"
 
     if (computation) { // Fails to satisfy the condition.
       fulfill("Successful")
@@ -306,8 +334,8 @@ myPromise.then(
 )
 ```
 
-With the *Promise.prototype.then* method we can schedule function calls ("callbacks") for the time after the promise's state changes.
-Not only that, it also allows access to the object's result property via the optional argument of the callback.
+With the *Promise.prototype.then* method, we can schedule function calls ("callbacks") for the time after the promise's state changes.
+Not only that, it allows us to use the value of the object's result property via the optional parameter of the callback.
 
 In more detail:
 
@@ -315,9 +343,9 @@ In more detail:
 
 Depending on which state the promise ends up in, either the first or the second callback is run.
 
-- The first callback is run if the promise's state changes to "fulfilled". It can take one argument. This argument takes the value we have passed to the first function of our executor. In example 13, it is the a string saying "Successful".
+- The first callback is run if the promise's state changes to "fulfilled". It can take one argument. This argument takes the value we have passed to the first function of our executor. In *example 13*, it is the string saying "Successful".
 
-- The second callback is run if the promise's state changes to "rejected". It can also take one argument, but this argument takes the value we have passed to the second function of our executor. In example 14, it is the a string saying "Failed".
+- The second callback is run if the promise's state changes to "rejected". It can also take one argument, but this argument takes the value we have passed to the second function of our executor. In *example 14*, it is the string saying "Failed".
 
 Now take a look at this example:
 
@@ -326,7 +354,7 @@ Now take a look at this example:
 
 function executor(fulfill, reject) {
   setTimeout(() => {
-  const computation = "apple" === "orange"
+    const computation = "apple" === "orange"
 
     if (computation) { // Fails to satisfy the condition.
       fulfill("Successful")
@@ -345,11 +373,13 @@ myPromise.then(
 
 This does something similar to the previous example.
 
-*Promise.prototype.catch* gives us an opportunity to handle or "catch" any problematic promises (i.e. promises with a "rejected" state). 
-I suggest looking at these examples to see how this compares to handling problems with *Promise.prototype.then*:
+*Promise.prototype.catch* gives us an opportunity to handle or "catch" any problematic promises (i.e. promises with a "rejected" state).
+
+In case you are wondering, here is some further reading about how *catch()* compares to handling errors with *then()*:
 
 [https://stackoverflow.com/questions/40067852/in-a-promise-whats-the-difference-between-using-catch-and-the-2nd-argument-of](https://stackoverflow.com/questions/40067852/in-a-promise-whats-the-difference-between-using-catch-and-the-2nd-argument-of)
 
+It is important to note here, that all 3 methods (*then()*, *catch()*, *finally()*) return a promise, which makes it possible to chain them. This concept is called "method chaining".
 
 Now take a look at this example:
 
@@ -358,7 +388,7 @@ Now take a look at this example:
 
 function executor(fulfill, reject) {
   setTimeout(() => {
-  const computation = "apple" === "orange"
+    const computation = "apple" === "orange"
 
     if (computation) { // Fails to satisfy the condition.
       fulfill("Successful")
@@ -380,8 +410,6 @@ myPromise.then(
 ```
 
 *Promise.prototype.finally* allows us to schedule a callback that always runs if the promise is settled, meaning, if its state becomes "fulfilled" or "rejected".
-
-It is important to note that all 3 methods discussed here (*Promise.prototype.then*, *Promise.prototype.catch*, *Promise.prototype.finally*) return a promise, which makes it possible to chain them.
 
 <a id="a-more-realistic-example"></a>
 ## A more realistic example
@@ -408,17 +436,8 @@ function myAsyncFunction(url) {
 }
 ```
 
-Based on what we have learned so far, what does this code do? We don't have to understand each bit, but in essence:
 
-1. A call to myAsyncFunction returns a new promise object.
-2. The executor function, as we have discussed, has two arguments, named "resolve" and "reject" in this case.
-3. In the executor's body, we do our "computation":
-    1. We prepare a GET request by creating an XHR object.
-    1. We get ready to call resolve with the response to the GET request, in case the request is successful.
-    1. We get ready to call reject with the response status of the GET request, in case the request encounters an error.
-    1. We dispatch the request to the server.
-
-And this is how we might use this function (with *Promise.prototype.then*, as discussed earlier):
+And this is how we might use this function (with *Promise.prototype.then*):
 
 ```jsx
 // example 18
@@ -441,10 +460,22 @@ myPromise.then(
 )
 ```
 
+Based on what we have learned so far, what does this code do? We don't have to understand each bit, but in essence:
+
+1. myAsyncFunction is a function that uses a **Promise constructor** to create an instance of a promise.
+    1. The constructor takes an **executor function** (with parameters called "resolve" and "reject" in this case).
+    1. In the executor's body, we do our **"computation"**:
+        1. We create an XHR object and prepare a GET request.
+        1. We **get ready to call resolve** with the response text, in case the request is successful.
+        1. We **get ready to call reject** with the status text, in case the request encounters an error.
+        1. We dispatch the request to the server.
+1. We call myAsyncFunction to **create a promise** ("myPromise").
+1. We call the promise's *then()* method, to **schedule our callbacks** (as discussed before).
+
 <a id="further-reading"></a>
 ## Further reading
 
-We've arrived at the end of this post, I will finish with some addition reading material:
+We've arrived at the end of this post, I will finish with some additional reading material:
 
 [https://github.com/domenic/promises-unwrapping/blob/master/docs/states-and-fates.md](https://github.com/domenic/promises-unwrapping/blob/master/docs/states-and-fates.md)
 
@@ -454,14 +485,14 @@ How to use an XHR object without "promisification":
 
 [https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/Using_XMLHttpRequest](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/Using_XMLHttpRequest)
 
-We don't actually need to promisify requests since there is a new API for fetching resources with promise capabilities out of the box:
+We don't actually need to "promisify" requests since there is a new API for fetching resources with promise capabilities out of the box:
 
 [https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
 
 <a id="feedback"></a>
 ## Feedback
 
-There is more to promises, but I didn't want to make this post  longer. 
+There is more to promises, but I didn't want to make this post  longer.
 
 In my opinion, the terminology around promises can be a bit confusing - I hope I did not add more to it.
 
