@@ -470,7 +470,7 @@ Based on what we have learned so far, what does this code do? We don't have to u
         1. We **get ready to call reject** with the status text, in case the request encounters an error.
         1. We dispatch the request to the server.
 1. We call myAsyncFunction to **create a promise** ("myPromise").
-1. We call the promise's *then()* method, to **schedule our callbacks** (as discussed before).
+1. We call the promise's *then()* method, to **schedule our callbacks**.
 
 <a id="further-reading"></a>
 ## Further reading
