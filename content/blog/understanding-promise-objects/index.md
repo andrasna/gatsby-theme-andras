@@ -496,4 +496,4 @@ There is more to promises, but I didn't want to make this post  longer.
 
 In my opinion, the terminology around promises can be a bit confusing - I hope I did not add more to it.
 
-I don't have a comments section, but you can open an [issue on github](https://github.com/andrasna/gatsby-theme-andras/issues), or send me an email, to ask questions, suggest changes and what have you.
+I don't have a comments section, but to ask questions, suggest changes and what have you, you can open an [issue on github](https://github.com/andrasna/gatsby-theme-andras/issues), or you can send me an email.
