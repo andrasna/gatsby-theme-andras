@@ -305,7 +305,7 @@ const myPromise = new Promise(executor)
 
 myPromise.then(
   (result) => console.log(result),
-  (error)=>console.log(error)
+  (error) => console.log(error)
 )
 ```
 
@@ -330,7 +330,7 @@ const myPromise = new Promise(executor)
 
 myPromise.then(
   (result) => console.log(result),
-  (error)=>console.log(error)
+  (error) => console.log(error)
 )
 ```
 
@@ -368,7 +368,7 @@ const myPromise = new Promise(executor)
 
 myPromise.then(
   (result) => console.log(result),
-).catch((error)=>console.log(error))
+).catch((error) => console.log(error))
 ```
 
 This does something similar to the previous example.
