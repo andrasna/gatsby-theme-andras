@@ -484,7 +484,7 @@ Based on what we have learned so far, what does this code do? We don't have to u
 
 *Much of this section is based on this talk by Philip Roberts: https://www.youtube.com/watch?v=8aGhZQkoFbQ*
 
-### One thing that might be confusing is what setTimeout has to do with asynchronicity.
+One thing that might be confusing is what setTimeout has to do with asynchronicity.
 
 setTimeout sets a timer and schedules a function call (callback) for the time after the timer has expired. However we do not have to wait for the timer to expire, we can continue running other code.
 
@@ -499,8 +499,6 @@ To my best understanding, asynchronicity in JavaScript means that some computati
 This does not mean the callback we pass to something like setTimeout is run concurrently - it could run out of order though (i.e. not in the order it appears in the source code).
 
 In other words, being able to run code out of order, probably to avoid blocking behavior, is asynchronicity, which would not be possible without concurrent computations via Web APIs (even if a computation is merely a countdown).
-
-### What is an asynchronous callback?
 
 You might have come across something like this line in the MDN docs:
 
