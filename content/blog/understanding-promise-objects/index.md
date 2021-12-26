@@ -500,6 +500,8 @@ This does not mean the callback we pass to something like setTimeout is run conc
 
 In other words, being able to run code out of order, probably to avoid blocking behavior, is asynchronicity, which would not be possible without concurrent computations via Web APIs (even if a computation is merely a countdown).
 
+### Calling functions asynchronously
+
 You might have come across something like this line in the MDN docs:
 
 > Once a Promise is fulfilled or rejected, the respective handler function (onFulfilled or onRejected) will be called asynchronously (scheduled in the current thread loop).
@@ -532,7 +534,7 @@ console.log('Second')
 
 Simply deferring the execution of the code until the main thread executes may not be the best example of asynchronicity (even though we are running code in a different order than it appears in the source code).
 
-Most of the time however, we would also have to wait for a concurrent computation to finish before executing the callback (which may be long after the main thread has finished executing).
+Most of the time however, we would also have to wait for a concurrent computation to finish before executing the callback (which may be long after the main thread has finished executing) - and this is pretty much how I have defined asynchronicity earlier.
 
 ### Blocking promises
 
