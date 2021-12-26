@@ -494,7 +494,7 @@ It can't, it only has a single thread, it can do one thing at a time.
 
 However, browsers can also access Web APIs, which you can think of as other threads, which is how concurrent computations are possible.
 
-To my best understanding, asynchronicity in JavaScript means that some computation (like the countdown) is handed over to a Web API and is then run concurrently, and that we can schedule callbacks for the time after the computation has finished.
+To my best understanding, asynchronicity in JavaScript means that some computation (like the countdown) is handed over to a Web API and is then able to run concurrently, and that we can schedule callbacks for the time after the computation has finished.
 
 This does not mean the callback we pass to something like setTimeout is run concurrently - it could run out of order though (i.e. not in the order it appears in the source code).
 
