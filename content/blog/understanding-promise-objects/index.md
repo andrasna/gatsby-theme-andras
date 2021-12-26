@@ -534,7 +534,7 @@ console.log('Second')
 
 Simply deferring the execution of the code until the main thread executes may not be the best example of asynchronicity (even though we are running code in a different order than it appears in the source code).
 
-Most of the time though, we would also have to wait for a concurrent computation to finish before executing the callback (which may be long after the main thread has finished executing).
+Most of the time however, we would also have to wait for a concurrent computation to finish before executing the callback (which may be long after the main thread has finished executing).
 
 ### Blocking promises
 
