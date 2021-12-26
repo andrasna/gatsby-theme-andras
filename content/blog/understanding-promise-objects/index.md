@@ -548,7 +548,7 @@ Further discussion: https://stackoverflow.com/questions/53876344/correct-way-to-
 
 Promise methods are not the only way we can use promises.
 
-Similarly, we can schedule operations for the time after a promise's state changes with async and await.
+We could similarly schedule operations for the time after a promise's state changes with async and await.
 
 Let's see an example!
 
