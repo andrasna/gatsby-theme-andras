@@ -601,6 +601,7 @@ We don't actually need to "promisify" requests since there is a new API for fetc
 [https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
 
 More about how to use async and await:
+
 [https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Async_await](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Async_await)
 
 <a id="feedback"></a>
