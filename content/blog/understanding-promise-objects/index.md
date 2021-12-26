@@ -13,7 +13,7 @@ Table of contents:
 - [Changing the state and result of promises](#changing-the-state-and-result-of-promises)
 - [How to use promises](#how-to-use-promises)
 - [A more realistic example](#a-more-realistic-example)
-- [A word about asynchronicity](#a-word-about-asynchronicity)
+- [A few words about asynchronicity](#a-few-words-about-asynchronicity)
 - [How to use promises with async and await?](#how-to-use-promises-with-async-and-await)
 - [Further reading](#further-reading)
 - [Feedback](#feedback)
@@ -478,7 +478,7 @@ Based on what we have learned so far, what does this code do? We don't have to u
 1. We call myAsyncFunction to **create a promise** ("myPromise").
 1. We call the promise's *then()* method, to **schedule our callbacks**.
 
-<a id="a-word-about-asynchronicity"></a>
+<a id="a-few-words-about-asynchronicity"></a>
 
 ## A few words about promise asynchronicity
 
