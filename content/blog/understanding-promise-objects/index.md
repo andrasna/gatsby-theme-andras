@@ -576,7 +576,7 @@ fetchCatFactTwo(url).then(a => console.log(a))
 
 Both functions do the same thing, only the syntax is different.
 
-They fetched data from an API and return a promise that is fulfilled with a text about cats.
+They fetch data from an API and return a promise that is fulfilled with a text about cats.
 
 We can observe how in the first function, the first argument to *then()* will be the promise's fulfillment value.
 
