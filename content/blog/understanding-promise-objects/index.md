@@ -498,8 +498,6 @@ To my best understanding, asynchronicity in JavaScript means that some computati
 
 This does not mean the callback we pass to something like setTimeout is run concurrently - it could run out of order though (i.e. not in the order it appears in the source code).
 
-In other words, being able to run code out of order, probably to avoid blocking behavior, is asynchronicity, which would not be possible without concurrent computations via Web APIs (even if a computation is merely a countdown).
-
 ### Calling functions asynchronously
 
 You might have come across something like this line in the MDN docs:
