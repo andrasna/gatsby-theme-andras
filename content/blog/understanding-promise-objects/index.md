@@ -510,15 +510,13 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 What does "asynchronously" mean here?
 
-I do find this a bit confusing.
+It just seems to mean, that even if the promise is fulfilled immediately, the callback won't run until the main thread executes.
 
-But it seems to mean, even if the promise is fulfilled immediately, the callback won't run until the main thread executes.
-
-I am wondering though, if deferring a function call, without being bound by a concurrent computation as well, would be a good example of an asynchronous callback.
+I do find this confusing, because I am wondering, if deferring a function call, without being bound by a concurrent computation as well, would be a good example of an asynchronous callback.
 
 I think the important thing however is to know what the documentation might mean by "asynchronous callback".
 
-Here is an example:
+And here is an example:
 
 ```js
 // example 19
@@ -539,7 +537,6 @@ console.log('Second')
 ```
 
 Almost as though we were using setTimout with a 0 delay, to defer running our code. In reality, Promise callbacks are added to the "microtask queue", whereas setTimout callbacks are added to the "task queue". Microtasks are processed *right after* the main thread is clear (which also means, they are processed before any new tasks/macrotasks).
-
 
 ### Blocking promises
 
