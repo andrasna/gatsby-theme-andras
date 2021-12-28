@@ -383,7 +383,7 @@ This does something similar to the previous example.
 
 In case you are wondering, here is some further reading about how *catch()* compares to handling errors with *then()*:
 
-[https://stackoverflow.com/questions/40067852/in-a-promise-whats-the-difference-between-using-catch-and-the-2nd-argument-of](https://stackoverflow.com/questions/40067852/in-a-promise-whats-the-difference-between-using-catch-and-the-2nd-argument-of)
+[In a Promise, what's the difference between using catch and the 2nd argument of then?](https://stackoverflow.com/questions/40067852/in-a-promise-whats-the-difference-between-using-catch-and-the-2nd-argument-of)
 
 It is important to note here, that all 3 methods (*then()*, *catch()*, *finally()*) return a promise, which makes it possible to chain them. This concept is called "method chaining".
 
@@ -425,7 +425,7 @@ As MDN points out:
 
 > The Promise constructor is primarily used to wrap functions that do not already support promises.
 
-[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/Promise)
+[MDN documentation of the Promise() constructor](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/Promise)
 
 The article also gives this example:
 
@@ -482,7 +482,7 @@ Based on what we have learned so far, what does this code do? We don't have to u
 
 ## A few words about promise asynchronicity
 
-*Much of this section is based on this presentation by Philip Roberts: https://www.youtube.com/watch?v=8aGhZQkoFbQ*
+*Much of this section is based on a [presentation by Philip Roberts](https://www.youtube.com/watch?v=8aGhZQkoFbQ).*
 
 One thing that might be confusing is what setTimeout has to do with asynchronicity.
 
@@ -494,39 +494,39 @@ It can't, it only has a single thread, it can do one thing at a time.
 
 However, browsers can also access Web APIs, which you can think of as other threads, which is how concurrent computations are possible.
 
-To my best understanding, asynchronicity in JavaScript means that some computation (like the countdown) is handed over to a Web API and is then able to run concurrently, and that we can schedule callbacks for the time after the computation has finished.
+To my best understanding, asynchronicity in JavaScript means some computation (like the countdown) is handed over to a Web API and is then able to run concurrently, and that we can schedule callbacks for the time after the computation has finished.
 
-This does not mean the callback we pass to something like setTimeout is run concurrently - it could run out of order though (i.e. not in the order it appears in the source code).
+### How callbacks are handled
 
-### How promises are handled
-
-Even if a promise is fulfilled immediately, it can not be handled right away:
+Even if a promise is fulfilled immediately, its callbacks have to be scheduled first:
 
 ```js
 // example 19
 
 function executor(fulfill) {
-  fulfill('Successful')
+  fulfill('Success')
 }
 
 const myPromise = new Promise(executor)
 
+myPromise.then(data => console.log(data)) // The callback is scheduled but not executed
 
-myPromise.then(() => console.log('First'))
+console.log('I will run before the callback.') // We Continue running other code
 
-console.log('Second')
-
-// Second
-// First
+// I will run before the callback. 
+// Success 
 ```
 
-Almost as though we were using setTimout with a 0 delay, to defer running our code. In reality, Promise callbacks are added to the "microtask queue", whereas setTimout callbacks are added to the "task queue". Microtasks are processed *right after* the main thread is clear (which also means, they are processed before any new tasks/macrotasks).
+Almost as though we were using setTimout with a 0 delay, to defer running our code. In reality, Promise callbacks are added to the "microtask queue", whereas setTimout callbacks are added to the "task queue".
+
+In case you want to get a picture of how tasks and microtasks are handled, I have found this [presentation by Jake Archibald](https://www.youtube.com/watch?v=cCOL7MC4Pl0) very interesting.
 
 ### Blocking executors
 
 The code of an executor could produce blocking behavior, since it is run synchronously. For this reason, if you were wondering, if we could wrap a synchronous computation in a promise, to make it asynchronous, *we can not*.
 
-Further discussion: https://stackoverflow.com/questions/53876344/correct-way-to-write-a-non-blocking-function-in-node-js
+Further discussion:
+[Correct way to write a non-blocking function in Node.js](https://stackoverflow.com/questions/53876344/correct-way-to-write-a-non-blocking-function-in-node-js)
 
 <a id="how-to-use-promises-with-async-and-await"></a>
 
@@ -574,25 +574,15 @@ Whereas in our async function, we have access to the same fulfillment value by p
 
 We've arrived at the end of this post, I will finish with some additional reading material:
 
-[https://github.com/domenic/promises-unwrapping/blob/master/docs/states-and-fates.md](https://github.com/domenic/promises-unwrapping/blob/master/docs/states-and-fates.md)
+- [States and Fates by Domenic Denicola](https://github.com/domenic/promises-unwrapping/blob/master/docs/states-and-fates.md)
 
-[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
+- [The MDN documentation of promise objects.](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 
-How to use an XHR object without "promisification":
+- [How to use an XHR object without "promisification"](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/Using_XMLHttpRequest)
 
-[https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/Using_XMLHttpRequest](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/Using_XMLHttpRequest)
+- We don't actually need to "promisify" requests since there is a new API for fetching resources with promise capabilities out of the box: [Fetch API.](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
 
-We don't actually need to "promisify" requests since there is a new API for fetching resources with promise capabilities out of the box:
-
-[https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
-
-More about how to use async and await:
-
-[https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Async_await](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Async_await)
-
-About tasks and microtasks:
-
-[https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/](https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/)
+- [More about how to use async and await](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Async_await)
 
 <a id="feedback"></a>
 ## Feedback
