@@ -4,19 +4,22 @@ date: "2021-12-12"
 description: "What they are, how they are created and used, with examples."
 ---
 
-*Note: This article assumes familiarity with JavaScript in general.*
+*Note: This article assumes familiarity with JavaScript in general. You might want to refresh your memory on [objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects) in particular.*
 
 Table of contents:
 
 - [How to create a promise?](#how-to-create-a-promise)
 - [What is actually a promise?](#what-is-actually-a-promise)
 - [Changing the state and result of promises](#changing-the-state-and-result-of-promises)
-- [How to use promises?](#how-to-use-promises)
+- [How to use promises](#how-to-use-promises)
 - [A more realistic example](#a-more-realistic-example)
+- [A few words about asynchronicity](#a-few-words-about-asynchronicity)
+- [How to use promises with async and await?](#how-to-use-promises-with-async-and-await)
 - [Further reading](#further-reading)
 - [Feedback](#feedback)
 
 <a id="how-to-create-a-promise"></a>
+
 ## How to create a promise?
 
 We can create a promise with the Promise constructor:
@@ -44,6 +47,7 @@ const myPromise = new Promise() // Type error since nothing is passed.
 However, to create a useful promise, we probably want to pass an executor to the constructor that does something useful. We will do just that at the end of this post, but first, let's develop a better sense for what a promise actually is.
 
 <a id="what-is-actually-a-promise"></a>
+
 ## What is actually a promise?
 
 According to the ECMAScript Language Specification:
@@ -104,6 +108,7 @@ And basically, the purpose of each promise object is to:
 We will discuss the second point and how to use the methods (*Promise.prototype.then*, *Promise.prototype.catch*, *Promise.prototype.finally*) very soon, but only after looking at some examples of how the properties (state and result) of a promise can be mutated.
 
 <a id="changing-the-state-and-result-of-promises"></a>
+
 ## Changing the state and result of promises
 
 The executor is actually a *higher order function*. It takes two functions as arguments. To mutate the properties of a promise, we just have to call either the first or the second.
@@ -240,6 +245,7 @@ console.log(myPromise)
 *Note: we may replace "fulfill" and "reject" with any name we want.*
 
 <a id="how-to-use-promises"></a>
+
 ## How to use promises
 
 If you recall from earlier, all instances of Promise also have a "Prototype" property. This is where the methods shared by all instances live. We are interested in *Promise.prototype.then*, *Promise.prototype.catch* and *Promise.prototype.finally*.
@@ -251,12 +257,12 @@ Take a look at this example:
 
 function executor(fulfill, reject) {
   setTimeout(() => {
-    const computation = "apple" === "apple"
+    const computation = 'apple' === 'apple'
 
     if (computation) {
-      fulfill("Successful")
+      fulfill('Successful')
     } else {
-      reject("Failed")
+      reject('Failed')
     }
   }, 3000)
 }
@@ -291,12 +297,12 @@ Let's see how they work.
 
 function executor(fulfill, reject) {
   setTimeout(() => {
-    const computation = "apple" === "apple"
+    const computation = 'apple' === 'apple'
 
     if (computation) { // Satisfies the condition
-      fulfill("Successful") // Do this.
+      fulfill('Successful') // Do this.
     } else {
-      reject("Failed")
+      reject('Failed')
     }
   }, 3000)
 }
@@ -316,12 +322,12 @@ And with a slight modification, to always call the second argument of the execut
 
 function executor(fulfill, reject) {
   setTimeout(() => {
-    const computation = "apple" === "orange"
+    const computation = 'apple' === 'orange'
 
     if (computation) { // Fails to satisfy the condition.
-      fulfill("Successful")
+      fulfill('Successful')
     } else {
-      reject("Failed") // Do this.
+      reject('Failed') // Do this.
     }
   }, 3000)
 }
@@ -354,12 +360,12 @@ Now take a look at this example:
 
 function executor(fulfill, reject) {
   setTimeout(() => {
-    const computation = "apple" === "orange"
+    const computation = 'apple' === 'orange'
 
     if (computation) { // Fails to satisfy the condition.
-      fulfill("Successful")
+      fulfill('Successful')
     } else {
-      reject("Failed") // Do this.
+      reject('Failed') // Do this.
     }
   }, 3000)
 }
@@ -388,12 +394,12 @@ Now take a look at this example:
 
 function executor(fulfill, reject) {
   setTimeout(() => {
-    const computation = "apple" === "orange"
+    const computation = 'apple' === 'orange'
 
     if (computation) { // Fails to satisfy the condition.
-      fulfill("Successful")
+      fulfill('Successful')
     } else {
-      reject("Failed") // Do this.
+      reject('Failed') // Do this.
     }
   }, 3000)
 }
@@ -405,13 +411,14 @@ myPromise.then(
 ).catch(
   (error) => console.log(error)
 ).finally(
-  () => console.log("Clean things up.")
+  () => console.log('Clean things up.')
 )
 ```
 
 *Promise.prototype.finally* allows us to schedule a callback that always runs if the promise is settled, meaning, if its state becomes "fulfilled" or "rejected".
 
 <a id="a-more-realistic-example"></a>
+
 ## A more realistic example
 
 As MDN points out:
@@ -428,14 +435,13 @@ The article also gives this example:
 function myAsyncFunction(url) {
   return new Promise((resolve, reject) => {
     const xhr = new XMLHttpRequest()
-    xhr.open("GET", url)
+    xhr.open('GET', url)
     xhr.onload = () => resolve(xhr.responseText)
     xhr.onerror = () => reject(xhr.statusText)
     xhr.send()
   });
 }
 ```
-
 
 And this is how we might use this function (with *Promise.prototype.then*):
 
@@ -445,14 +451,14 @@ And this is how we might use this function (with *Promise.prototype.then*):
 function myAsyncFunction(url) {
   return new Promise((resolve, reject) => {
     const xhr = new XMLHttpRequest()
-    xhr.open("GET", url)
+    xhr.open('GET', url)
     xhr.onload = () => resolve(xhr.responseText)
     xhr.onerror = () => reject(xhr.statusText)
     xhr.send()
   });
 }
 
-const myPromise = myAsyncFunction("https://catfact.ninja/fact")
+const myPromise = myAsyncFunction('https://catfact.ninja/fact')
 
 myPromise.then(
   (result) => console.log(result),
@@ -472,8 +478,115 @@ Based on what we have learned so far, what does this code do? We don't have to u
 1. We call myAsyncFunction to **create a promise** ("myPromise").
 1. We call the promise's *then()* method, to **schedule our callbacks**.
 
+<a id="a-few-words-about-asynchronicity"></a>
+
+## A few words about promise asynchronicity
+
+*Much of this section is based on this presentation by Philip Roberts: https://www.youtube.com/watch?v=8aGhZQkoFbQ*
+
+One thing that might be confusing is what setTimeout has to do with asynchronicity.
+
+setTimeout sets a timer and schedules a function call (callback) for the time after the timer has expired. However we do not have to wait for the timer to expire, we can continue running other code.
+
+How can the JS runtime keep track of a countdown and also continue running other code?
+
+It can't, it only has a single thread, it can do one thing at a time.
+
+However, browsers can also access Web APIs, which you can think of as other threads, which is how concurrent computations are possible.
+
+To my best understanding, asynchronicity in JavaScript means that some computation (like the countdown) is handed over to a Web API and is then able to run concurrently, and that we can schedule callbacks for the time after the computation has finished.
+
+This does not mean the callback we pass to something like setTimeout is run concurrently - it could run out of order though (i.e. not in the order it appears in the source code).
+
+In other words, being able to run code out of order, probably to avoid blocking behavior, is asynchronicity, which would not be possible without concurrent computations via Web APIs (even if a computation is merely a countdown).
+
+### Calling functions asynchronously
+
+You might have come across something like this line in the MDN docs:
+
+> Once a Promise is fulfilled or rejected, the respective handler function (onFulfilled or onRejected) will be called asynchronously (scheduled in the current thread loop).
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/then#return_value
+
+What does "asynchronously" mean here?
+
+It just seems to mean that even if the promise is fulfilled immediately, the callback won't run until the main thread executes.
+
+I do find this confusing, because I am wondering if deferring a function call, without being bound by a concurrent computation as well, would be a good example of an asynchronous callback.
+
+I think the important thing however is to know what the documentation might mean by "asynchronous callback".
+
+And here is an example:
+
+```js
+// example 19
+
+function executor(fulfill) {
+  fulfill('Successful')
+}
+
+const myPromise = new Promise(executor)
+
+
+myPromise.then(() => console.log('First'))
+
+console.log('Second')
+
+// Second
+// First
+```
+
+Almost as though we were using setTimout with a 0 delay, to defer running our code. In reality, Promise callbacks are added to the "microtask queue", whereas setTimout callbacks are added to the "task queue". Microtasks are processed *right after* the main thread is clear (which also means, they are processed before any new tasks/macrotasks).
+
+### Blocking promises
+
+The code of an executor could produce blocking behavior, since it is run synchronously. For this reason, if you were wondering, if we could wrap a synchronous computation in a promise, to make it asynchronous, *we can not*.
+
+Further discussion: https://stackoverflow.com/questions/53876344/correct-way-to-write-a-non-blocking-function-in-node-js
+
+<a id="how-to-use-promises-with-async-and-await"></a>
+
+## How to use promises with async and await?
+
+Promise methods are not the only way we can use promises.
+
+We could similarly schedule operations for the time after a promise's state changes with async and await.
+
+Let's see an example!
+
+```js
+// example 20
+
+const url = 'https://catfact.ninja/fact'
+
+function fetchCatFactOne(url) {
+  return fetch(url)
+    .then(response => response.json())
+    .then(obj => obj.fact)
+}
+
+async function fetchCatFactTwo(url) {
+  const response = await fetch(url)
+  const obj = await response.json()
+  return obj.fact
+}
+
+fetchCatFactOne(url).then(a => console.log(a))
+
+fetchCatFactTwo(url).then(a => console.log(a))
+```
+
+Both functions do the same thing, only the syntax is different.
+
+They fetch data from an API and return a promise that is fulfilled with a text about cats.
+
+We can observe how in the first function, the first argument to *then()* will be the promise's fulfillment value.
+
+Whereas in our async function, we have access to the same fulfillment value by preceding a function - that returns a promise - with the await keyword.
+
 <a id="further-reading"></a>
-## Further reading
+
+## Further reading:
 
 We've arrived at the end of this post, I will finish with some additional reading material:
 
@@ -488,6 +601,14 @@ How to use an XHR object without "promisification":
 We don't actually need to "promisify" requests since there is a new API for fetching resources with promise capabilities out of the box:
 
 [https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
+
+More about how to use async and await:
+
+[https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Async_await](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Async_await)
+
+About tasks and microtasks:
+
+[https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/](https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/)
 
 <a id="feedback"></a>
 ## Feedback
