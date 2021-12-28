@@ -500,7 +500,7 @@ This does not mean the callback we pass to something like setTimeout is run conc
 
 ### How promises are handled
 
-Even if a promise is fulfilled immediately, it can not be handled as long as the the main thread executes:
+Even if a promise is fulfilled immediately, it can not be handled right away:
 
 ```js
 // example 19
