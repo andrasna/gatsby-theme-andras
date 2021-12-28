@@ -498,23 +498,9 @@ To my best understanding, asynchronicity in JavaScript means that some computati
 
 This does not mean the callback we pass to something like setTimeout is run concurrently - it could run out of order though (i.e. not in the order it appears in the source code).
 
-### Calling functions asynchronously
+### How promises are handled
 
-You might have come across something like this line in the MDN docs:
-
-> Once a Promise is fulfilled or rejected, the respective handler function (onFulfilled or onRejected) will be called asynchronously (scheduled in the current thread loop).
-
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/then#return_value
-
-What does "asynchronously" mean here?
-
-It just seems to mean that even if the promise is fulfilled immediately, the callback won't run until the main thread executes.
-
-I do find this confusing, because I am wondering if deferring a function call, without being bound by a concurrent computation as well, would be a good example of an asynchronous callback.
-
-I think the important thing however is to know what the documentation might mean by "asynchronous callback".
-
-And here is an example:
+Even if a promise is fulfilled immediately, it can not be handled as long as the the main thread executes:
 
 ```js
 // example 19
@@ -536,7 +522,7 @@ console.log('Second')
 
 Almost as though we were using setTimout with a 0 delay, to defer running our code. In reality, Promise callbacks are added to the "microtask queue", whereas setTimout callbacks are added to the "task queue". Microtasks are processed *right after* the main thread is clear (which also means, they are processed before any new tasks/macrotasks).
 
-### Blocking promises
+### Blocking executors
 
 The code of an executor could produce blocking behavior, since it is run synchronously. For this reason, if you were wondering, if we could wrap a synchronous computation in a promise, to make it asynchronous, *we can not*.
 
