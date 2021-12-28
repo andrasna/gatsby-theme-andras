@@ -482,7 +482,7 @@ Based on what we have learned so far, what does this code do? We don't have to u
 
 ## A few words about promise asynchronicity
 
-*Much of this section is based on this talk by Philip Roberts: https://www.youtube.com/watch?v=8aGhZQkoFbQ*
+*Much of this section is based on this presentation by Philip Roberts: https://www.youtube.com/watch?v=8aGhZQkoFbQ*
 
 One thing that might be confusing is what setTimeout has to do with asynchronicity.
 
@@ -510,9 +510,15 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 What does "asynchronously" mean here?
 
-It seems to mean, that even if the promise is fulfilled by the time we reach to a call to *then(callback)* as an example, the callback won't run until the main thread executes.
+I do find this a bit confusing.
 
-Almost as though we were using setTimout with a 0 delay, to to defer running some code:
+But it seems to mean, even if the promise is fulfilled immediately, the callback won't run until the main thread executes.
+
+I am wondering though, if deferring a function call, without being bound by a concurrent computation as well, would be a good example of an asynchronous callback.
+
+I think the important thing however is to know what the documentation might mean by "asynchronous callback".
+
+Here is an example:
 
 ```js
 // example 19
@@ -532,9 +538,8 @@ console.log('Second')
 // First
 ```
 
-Simply deferring the execution of the code until the main thread executes may not be the best example of asynchronicity (even though we are running code in a different order than it appears in the source code).
+Almost as though we were using setTimout with a 0 delay, to defer running our code. In reality, Promise callbacks are added to the "microtask queue", whereas setTimout callbacks are added to the "task queue". Microtasks are processed *right after* the main thread is clear (which also means, they are processed before any new tasks/macrotasks).
 
-Most of the time however, we would also have to wait for a concurrent computation to finish before executing the callback (which may be long after the main thread has finished executing). 
 
 ### Blocking promises
 
@@ -603,6 +608,9 @@ We don't actually need to "promisify" requests since there is a new API for fetc
 More about how to use async and await:
 
 [https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Async_await](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Async_await)
+
+About tasks and microtasks:
+[https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/](https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/)
 
 <a id="feedback"></a>
 ## Feedback
