@@ -510,9 +510,9 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 What does "asynchronously" mean here?
 
-It just seems to mean, that even if the promise is fulfilled immediately, the callback won't run until the main thread executes.
+It just seems to mean that even if the promise is fulfilled immediately, the callback won't run until the main thread executes.
 
-I do find this confusing, because I am wondering, if deferring a function call, without being bound by a concurrent computation as well, would be a good example of an asynchronous callback.
+I do find this confusing, because I am wondering if deferring a function call, without being bound by a concurrent computation as well, would be a good example of an asynchronous callback.
 
 I think the important thing however is to know what the documentation might mean by "asynchronous callback".
 
