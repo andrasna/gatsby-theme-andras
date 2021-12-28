@@ -4,7 +4,7 @@ date: "2021-12-12"
 description: "What they are, how they are created and used, with examples."
 ---
 
-*Note: This article assumes familiarity with JavaScript in general. You might want to refresh your memory on [objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects) in particular.*
+*Note: This post assumes familiarity with JavaScript in general. You might want to refresh your memory on [objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects) in particular.*
 
 Table of contents:
 
