@@ -576,7 +576,7 @@ We've arrived at the end of this post, I will finish with some additional readin
 
 - [States and Fates by Domenic Denicola](https://github.com/domenic/promises-unwrapping/blob/master/docs/states-and-fates.md)
 
-- [The MDN documentation of promise objects.](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
+- [The MDN documentation of promise objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 
 - [How to use an XHR object without "promisification"](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/Using_XMLHttpRequest)
 
