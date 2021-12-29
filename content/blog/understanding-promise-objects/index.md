@@ -570,7 +570,7 @@ Whereas in our async function, we have access to the same fulfillment value by p
 
 <a id="further-reading"></a>
 
-## Further reading:
+## Further reading
 
 We've arrived at the end of this post, I will finish with some additional reading material:
 
