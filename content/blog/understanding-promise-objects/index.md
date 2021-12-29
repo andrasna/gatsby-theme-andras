@@ -517,7 +517,7 @@ console.log('I will run before the callback.') // We Continue running other code
 // Success 
 ```
 
-Almost as though we were using setTimout with a 0 delay, to defer running our code. In reality, Promise callbacks are added to the "microtask queue", whereas setTimout callbacks are added to the "task queue".
+Almost as though we were using setTimout with a 0 delay, to defer running our code. In reality, promise callbacks are added to the "microtask queue", whereas setTimout callbacks are added to the "task queue".
 
 In case you want to get a picture of how tasks and microtasks are handled, I have found this [presentation by Jake Archibald](https://www.youtube.com/watch?v=cCOL7MC4Pl0) very interesting.
 
