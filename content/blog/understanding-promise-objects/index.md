@@ -580,7 +580,7 @@ We've arrived at the end of this post, I will finish with some additional readin
 
 - [How to use an XHR object without "promisification"](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/Using_XMLHttpRequest)
 
-- We don't actually need to "promisify" requests since there is a new API for fetching resources with promise capabilities out of the box: [Fetch API.](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
+- We don't actually need to "promisify" requests since there is a new API for fetching resources with promise capabilities out of the box: [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
 
 - [More about how to use async and await](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Async_await)
 
