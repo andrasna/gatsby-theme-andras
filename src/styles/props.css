@@ -26,7 +26,6 @@ html {
 
   /* Colors */
   --color-copy: hsla(0, 0%, 0%, .9); 
-  --color-title: hsla(0, 0%, 0%, .7); 
   --color-link: hsla(233, 34%, 50%, 1); 
   --color-link-current-page: var(--color-copy); 
   --color-link-footer: var(--color-copy); 
@@ -48,7 +47,6 @@ html {
 html.is-dark {
   /* Colors */
   --color-copy: hsla(0, 0%, 100%, .9);
-  --color-title: var(--color-display);
   --color-link: hsl(233, 100%, 84%);
   --color-link-current-page: var(--color-copy); 
   --color-link-footer: var(--color-copy); 
