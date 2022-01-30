@@ -180,6 +180,7 @@ We can think of `newFunc` as:
 func (func (func seed item1) item2) item3
 
 -- Or:
+
        f
       / \
      f   3
