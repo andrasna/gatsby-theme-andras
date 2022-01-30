@@ -139,31 +139,31 @@ onePlus 1 (onePlus 2 (onePlus 3 0))
 To generalize this, if we see something like:
 
 ```haskell
-newFunc = foldr func value
+newFunc = foldr func seed 
 ```
 
 We can immediately think of `newFunc` like this:
 
 ```haskell
-item1 `func` (item2 `func` (item3 `func` value))
+item1 `func` (item2 `func` (item3 `func` seed))
 
 -- or:
 
-func item1 (func item2 (func item3 value))
+func item1 (func item2 (func item3 seed))
 ```
 
 Whereas in case of `foldl`:
 
 ```haskell
-newFunc = foldl func value
+newFunc = foldl func seed 
 ```
 
 We can think of `newFunc` as:
 
 ```haskell
-(((value `func` item1) `func` item2) `func` item3)
+(((seed `func` item1) `func` item2) `func` item3)
 
 -- or:
 
-func (func (func value item1) item2) item3
+func (func (func seed item1) item2) item3
 ```
