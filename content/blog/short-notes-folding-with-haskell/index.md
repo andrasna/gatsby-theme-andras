@@ -162,7 +162,7 @@ func item1 (func item2 (func item3 seed))
      3   s
 ```
 
-*The tree structure is from this [Wikipedia article](https://en.wikipedia.org/wiki/Fold_(higher-order_function)), if you wanna check it out the original.*
+*The tree structure is from this [Wikipedia article](https://en.wikipedia.org/wiki/Fold_(higher-order_function)), if you wanna check out the original.*
 
 Whereas in case of `foldl`:
 
