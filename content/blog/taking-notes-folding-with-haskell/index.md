@@ -1,5 +1,5 @@
 ---
-title: 'Short notes: folding with Haskell'
+title: 'Taking notes: folding with Haskell'
 date: '2022-01-29'
 description: 'Taking some notes, since I forgot how foldr and foldl work.'
 ---
