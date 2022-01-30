@@ -26,7 +26,7 @@ And this is the explanation I am going with here as well, I am just adding a few
 
 ## Notes
 
-A simple example of foldr would be this:
+A simple example of using foldr would be this:
 
 ```haskell
 sum = foldr (+) 0
