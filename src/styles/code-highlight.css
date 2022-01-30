@@ -3,6 +3,6 @@ Overwriting code highlighting defaults
 */
 
 .language-text {
-  background: transparent !important;
+  background: var(--color-inline-code-bg) !important;
   color: var(--color-copy) !important;
 }

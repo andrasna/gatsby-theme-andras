@@ -30,17 +30,18 @@ html {
   --color-link-current-page: var(--color-copy); 
   --color-link-footer: var(--color-copy); 
   --color-card: hsla(0, 0%, 100%, 1);
-  --color-sitebg-alpha: hsla(77, 23%, 79%, 1);
-  --color-sitebg-beta: hsla(0, 21%, 94%, 1);
-  --color-sitebg-gamma: hsla(0, 0%, 96%, 1);
+  --color-site-bg-alpha: hsla(77, 23%, 79%, 1);
+  --color-site-bg-beta: hsla(0, 21%, 94%, 1);
+  --color-site-bg-gamma: hsla(0, 0%, 96%, 1);
   --color-code-bg: hsl(235, 15%, 16%);
+  --color-inline-code-bg: hsla(0, 0%, 95%, 1);
 
   /* Background image */
   --bg-image-site: linear-gradient(
     -60deg,
-    var(--color-sitebg-alpha) 0%,
-    var(--color-sitebg-beta) 50%,
-    var(--color-sitebg-gamma) 100%
+    var(--color-site-bg-alpha) 0%,
+    var(--color-site-bg-beta) 50%,
+    var(--color-site-bg-gamma) 100%
   );
 }
 
@@ -52,7 +53,8 @@ html.is-dark {
   --color-link-footer: var(--color-copy); 
   --color-card: hsl(234, 15%, 12%);
   --color-yellow: hsla(67, 100%, 73%, 1);
-  --color-sitebg-alpha: hsl(0, 0%, 7%);
-  --color-sitebg-beta: var(--color-sitebg-alpha);
-  --color-sitebg-gamma: var(--color-sitebg-alpha); 
+  --color-site-bg-alpha: hsl(0, 0%, 7%);
+  --color-site-bg-beta: var(--color-site-bg-alpha);
+  --color-site-bg-gamma: var(--color-site-bg-alpha); 
+  --color-inline-code-bg: var(--color-code-bg);
 }
