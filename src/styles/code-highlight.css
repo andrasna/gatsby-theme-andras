@@ -1,0 +1,8 @@
+/* 
+Overwriting code highlighting defaults
+*/
+
+.language-text {
+  background: transparent !important;
+  color: var(--color-copy) !important;
+}
