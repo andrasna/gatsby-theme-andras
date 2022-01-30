@@ -147,10 +147,22 @@ We can immediately think of `newFunc` like this:
 ```haskell
 item1 `func` (item2 `func` (item3 `func` seed))
 
--- or:
+-- Or:
 
 func item1 (func item2 (func item3 seed))
+
+-- Or:
+
+   f
+  / \
+ 1   f
+    / \
+   2   f
+      / \
+     3   s
 ```
+
+*The tree structure is from this [Wikipedia article](https://en.wikipedia.org/wiki/Fold_(higher-order_function)), if you wanna check it out the original.*
 
 Whereas in case of `foldl`:
 
@@ -163,7 +175,16 @@ We can think of `newFunc` as:
 ```haskell
 (((seed `func` item1) `func` item2) `func` item3)
 
--- or:
+-- Or:
 
 func (func (func seed item1) item2) item3
+
+-- Or:
+       f
+      / \
+     f   3
+    / \
+   f   2
+  / \
+ s   1
 ```
