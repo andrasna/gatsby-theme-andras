@@ -62,7 +62,7 @@ More specifically, it is an instance of the Promise constructor or Promise type,
 
 It has properties and methods like any other object.
 
-If we console.log a promise, we can take a look at the anatomy of the object:
+If we `console.log` a promise, we can take a look at the anatomy of the object:
 
 ```jsx
 // example 3
@@ -72,9 +72,9 @@ const myPromise = new Promise(() => {})
 console.log(myPromise)
 ```
 
-We see 3 properties live directly on each instance of a Promise. In chrome, they are called "Prototype" (we will get to this later),  "PromiseState" and "PromiseResult".
+We see 3 properties live directly on each instance of a Promise. In chrome, they are called `Prototype` (we will get to this later),  `PromiseState` and `PromiseResult`.
 
-We can think of the "PromiseState" and "PromiseResult" properties as the actual "placeholders"  the specification is referring to in a more abstract manner. Both properties are internal, i.e. inaccessible or not meant to be accessed by us directly.
+We can think of the `PromiseState` and `PromiseResult` properties as the actual "placeholders"  the specification is referring to in a more abstract manner. Both properties are internal, i.e. inaccessible or not meant to be accessed by us directly.
 
 Their initial values are "pending" and "undefined", respectively.
 
@@ -102,10 +102,10 @@ The "computation" the language specification refers to is the code we write in o
 
 And basically, the purpose of each promise object is to:
 
-1. Allow us to reflect the result of our computation in its properties ("PromiseState" and "PromiseResult").
+1. Allow us to reflect the result of our computation in its properties (`PromiseState` and `PromiseResult`).
 2. Provide methods to schedule function calls ("callbacks") for the time after a change in its state.
 
-We will discuss the second point and how to use the methods (*Promise.prototype.then*, *Promise.prototype.catch*, *Promise.prototype.finally*) very soon, but only after looking at some examples of how the properties (state and result) of a promise can be mutated.
+We will discuss the second point and how to use the methods (`Promise.prototype.then`, `Promise.prototype.catch`, `Promise.prototype.finally`) very soon, but only after looking at some examples of how the properties (state and result) of a promise can be mutated.
 
 <a id="changing-the-state-and-result-of-promises"></a>
 
@@ -248,7 +248,7 @@ console.log(myPromise)
 
 ## How to use promises
 
-If you recall from earlier, all instances of Promise also have a "Prototype" property. This is where the methods shared by all instances live. We are interested in *Promise.prototype.then*, *Promise.prototype.catch* and *Promise.prototype.finally*.
+If you recall from earlier, all instances of Promise also have a `Prototype` property. This is where the methods shared by all instances live. We are interested in `Promise.prototype.then`, `Promise.prototype.catch` and `Promise.prototype.finally`.
 
 Take a look at this example:
 
@@ -280,9 +280,9 @@ setTimeout(() => {
 }, 5000)
 ```
 
-Here we use *setTimeout* to pretend doing some computation for 3 seconds, and then, the function passed to *setTimeout* is run. For this example, the result is always true, which always satisfies our condition, therefore we always call *fulfill* with the string "Successful".
+Here we use `setTimeout` to pretend doing some computation for 3 seconds, and then, the function passed to `setTimeout` is run. For this example, the result is always true, which always satisfies our condition, therefore we always call *fulfill* with the string "Successful".
 
-What is interesting about the above, is how we log myPromise twice (after 1 second and after 5 seconds).
+What is interesting about the above, is how we log `myPromise` twice (after 1 second and after 5 seconds).
 
 Look at the state and the result: they change (as we might expect, since after 3 seconds, we call *fulfill* with a string, to change the state and the result).
 
@@ -340,12 +340,12 @@ myPromise.then(
 )
 ```
 
-With the *Promise.prototype.then* method, we can schedule function calls ("callbacks") for the time after the promise's state changes.
+With the `Promise.prototype.then` method, we can schedule function calls ("callbacks") for the time after the promise's state changes.
 Not only that, it allows us to use the value of the object's result property via the optional parameter of the callback.
 
 In more detail:
 
-*Promise.prototype.then* can take two callback functions.
+`Promise.prototype.then` can take two callback functions.
 
 Depending on which state the promise ends up in, either the first or the second callback is run.
 
@@ -381,11 +381,11 @@ This does something similar to the previous example.
 
 *Promise.prototype.catch* gives us an opportunity to handle or "catch" any problematic promises (i.e. promises with a "rejected" state).
 
-In case you are wondering, here is some further reading about how *catch()* compares to handling errors with *then()*:
+In case you are wondering, here is some further reading about how `catch` compares to handling errors with `then`:
 
 [In a Promise, what's the difference between using catch and the 2nd argument of then?](https://stackoverflow.com/questions/40067852/in-a-promise-whats-the-difference-between-using-catch-and-the-2nd-argument-of)
 
-It is important to note here, that all 3 methods (*then()*, *catch()*, *finally()*) return a promise, which makes it possible to chain them. This concept is called "method chaining".
+It is important to note here, that all 3 methods (`then`, `catch`, `finally`) return a promise, which makes it possible to chain them. This concept is called "method chaining".
 
 Now take a look at this example:
 
@@ -415,7 +415,7 @@ myPromise.then(
 )
 ```
 
-*Promise.prototype.finally* allows us to schedule a callback that always runs if the promise is settled, meaning, if its state becomes "fulfilled" or "rejected".
+`Promise.prototype.finally` allows us to schedule a callback that always runs if the promise is settled, meaning, if its state becomes "fulfilled" or "rejected".
 
 <a id="a-more-realistic-example"></a>
 
@@ -443,7 +443,7 @@ function myAsyncFunction(url) {
 }
 ```
 
-And this is how we might use this function (with *Promise.prototype.then*):
+And this is how we might use this function (with `Promise.prototype.then`):
 
 ```jsx
 // example 18
@@ -476,7 +476,7 @@ Based on what we have learned so far, what does this code do? We don't have to u
         1. We **get ready to call reject** with the status text, in case the request encounters an error.
         1. We dispatch the request to the server.
 1. We call myAsyncFunction to **create a promise** ("myPromise").
-1. We call the promise's *then()* method, to **schedule our callbacks**.
+1. We call the promise's `then` method, to **schedule our callbacks**.
 
 <a id="a-few-words-about-asynchronicity"></a>
 
@@ -484,9 +484,9 @@ Based on what we have learned so far, what does this code do? We don't have to u
 
 *Much of this section is based on a [presentation by Philip Roberts](https://www.youtube.com/watch?v=8aGhZQkoFbQ).*
 
-One thing that might be confusing is what setTimeout has to do with asynchronicity.
+One thing that might be confusing is what `setTimeout` has to do with asynchronicity.
 
-setTimeout sets a timer and schedules a function call (callback) for the time after the timer has expired. However we do not have to wait for the timer to expire, we can continue running other code.
+`setTimeout` sets a timer and schedules a function call (callback) for the time after the timer has expired. However we do not have to wait for the timer to expire, we can continue running other code.
 
 How can the JS runtime keep track of a countdown and also continue running other code?
 
@@ -517,7 +517,7 @@ console.log('I will run before the callback.') // We Continue running other code
 // Success 
 ```
 
-Almost as though we were using setTimout with a 0 delay, to defer running our code. In reality, promise callbacks are added to the "microtask queue", whereas setTimout callbacks are added to the "task queue".
+Almost as though we were using `setTimout` with a 0 delay, to defer running our code. In reality, promise callbacks are added to the "microtask queue", whereas `setTimout` callbacks are added to the "task queue".
 
 In case you want to get a picture of how tasks and microtasks are handled, I have found this [presentation by Jake Archibald](https://www.youtube.com/watch?v=cCOL7MC4Pl0) very interesting.
 
@@ -534,7 +534,7 @@ Further discussion:
 
 Promise methods are not the only way we can use promises.
 
-We could similarly schedule operations for the time after a promise's state changes with async and await.
+We could similarly schedule operations for the time after a promise's state changes with `async` and `await`.
 
 Let's see an example!
 
@@ -564,7 +564,7 @@ Both functions do the same thing, only the syntax is different.
 
 They fetch data from an API and return a promise that is fulfilled with a text about cats.
 
-We can observe how in the first function, the first argument to *then()* will be the promise's fulfillment value.
+We can observe how in the first function, the first argument to `then` will be the promise's fulfillment value.
 
 Whereas in our async function, we have access to the same fulfillment value by preceding a function - that returns a promise - with the await keyword.
 
