@@ -9,6 +9,7 @@ const Excerpts = () => {
     query PostExcerptsQuery {
       allMarkdownRemark(sort: {order: DESC, fields: frontmatter___date}) {
         nodes {
+          id
           frontmatter {
             title
             description
@@ -26,9 +27,9 @@ const Excerpts = () => {
 
   return(
     <div className={excerpts}>
-      {posts.map((post, i) => {
+      {posts.map((post) => {
         return (
-          <article key={i} className={`${card} ${excerpt}`}>
+          <article key={post.id} className={`${card} ${excerpt}`}>
             <header>
               <time dateTime={post.frontmatter.date}>
                 {post.frontmatter.date}
