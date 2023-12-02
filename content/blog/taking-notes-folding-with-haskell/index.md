@@ -1,8 +1,30 @@
 ---
-title: 'Folding with Haskell'
+title: 'Taking notes: folding with Haskell'
 date: '2022-01-29'
-description: 'How foldr and foldl work.'
+description: 'Taking some notes, since I forgot how foldr and foldl work.'
 ---
+
+I was looking for practical use cases of the `const` function in Haskell, and came across these examples:
+
+[What's the point of 'const' in the Haskell Prelude?](https://stackoverflow.com/a/28487485)
+
+```haskell
+length' = foldr (\_ acc -> 1 + acc) 0
+```
+
+```haskell
+length' = foldr (const (1+)) 0
+```
+
+Then I realized I forgot how `foldr` and `foldl` work. 
+
+So I did a search, and found this helpful explanation:
+
+[How does foldr work?](https://stackoverflow.com/a/1763323)
+
+And this is the explanation I am going with here as well, I am just adding a few more notes.
+
+## Notes
 
 A simple example of using foldr would be this:
 
