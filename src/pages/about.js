@@ -34,7 +34,7 @@ const About = () => {
               <p>I emphasize the value of web performance, accessibility, choosing the right tools and technologies for each problem.</p>
               <p>My native language is Hungarian, however we can communicate in English and German too.</p>
               <p>My <a title='Link to GitHub.' href='https://github.com/andrasna'>GitHub</a> and my <a title='Link to CodePen.' href='https://codepen.io/andrasnagy'> CodePen</a>.</p>
-              <p>You can reach me through email: <br /> <a href='mailto:contact@andras.me'>contact@andras.me</a> </p>
+              <p>You can reach me through email: <br /> <a href='mailto:andrasnagy.contact@gmail.com'>contact@andras.me</a> </p>
             </div>
           </article>
         </main>
